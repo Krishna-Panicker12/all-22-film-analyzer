@@ -1,0 +1,31 @@
+play_id,clip_file,game_id,offense,defense,quarter,clock,down,distance,yard_line,play_type,play_subtype,result_yards,outcome,first_down,touchdown,turnover,penalty,camera_angle,clip_start,tracking,clip_end,play_description
+run_001,run_001.mp4,NE_KC_2019_AFCCG,NE,KC,1,14:55,1,10,NE20,run,up_middle,11,rush,1,0,0,0,all22,00:00:40,00:00:42,00:00:53,Michel up the middle for 11 yards
+pass_001,pass_001.mp4,NE_KC_2019_AFCCG,NE,KC,1,14:06,2,9,NE32,pass,short_middle,13,complete,1,0,0,0,all22,00:01:33,00:01:37,00:01:48,Brady to Gronkowski for 13 yards
+run_002,run_002.mp4,NE_KC_2019_AFCCG,NE,KC,1,11:53,3,4,KC49,run,right_tackle,5,rush,1,0,0,0,all22,00:02:53,00:02:57,00:03:11,White right tackle for 5 yards
+pass_002,pass_002.mp4,NE_KC_2019_AFCCG,NE,KC,1,8:43,3,7,KC30,pass,short_middle,14,complete,1,0,0,0,all22,00:05:50,00:05:53,00:06:06,Brady to Edelman for 14 yards
+run_003,run_003.mp4,NE_KC_2019_AFCCG,NE,KC,1,8:30,1,10,KC16,run,right_guard,11,rush,1,0,0,0,all22,00:06:18,00:06:21,00:06:33,Michel right guard for 11 yards
+run_004,run_004.mp4,NE_KC_2019_AFCCG,KC,NE,1,6:50,1,10,KC16,run,right_tackle,5,rush,0,0,0,0,all22,00:08:48,00:08:51,00:09:05,Damien Williams right tackle for 5 yards
+run_005,run_005.mp4,NE_KC_2019_AFCCG,KC,NE,1,6:37,2,5,KC21,run,up_middle,-2,rush,0,0,0,0,all22,00:09:19,00:09:23,00:09:33,Damien Williams up the middle for -2 yards
+run_006,run_006.mp4,NE_KC_2019_AFCCG,NE,KC,2,14:48,2,1,KC1,run,left_guard,0,rush,0,0,0,0,all22,00:16:47,00:16:50,00:16:59,Michel left guard for no gain
+pass_003,pass_003.mp4,NE_KC_2019_AFCCG,KC,NE,2,5:55,1,10,KC35,pass,deep_right,42,complete,1,0,0,0,all22,00:27:02,00:27:06,00:27:23,Mahomes to Hill for 42 yards
+run_007,run_007.mp4,NE_KC_2019_AFCCG,NE,KC,2,2:53,2,8,NE12,run,left_guard,9,rush,1,0,0,0,all22,00:30:20,00:30:23,00:30:29,Michel left guard for 9 yards
+pass_004,pass_004.mp4,NE_KC_2019_AFCCG,NE,KC,2,1:02,1,10,NE32,pass,short_right,30,complete,1,0,0,0,all22,00:32:19,00:32:22,00:32:33,Brady to White for 30 yards
+run_008,run_008.mp4,NE_KC_2019_AFCCG,NE,KC,2,0:41,1,10,KC38,run,left_tackle,9,rush,0,0,0,0,all22,00:32:49,00:32:52,00:33:06,White left tackle for 9 yards
+pass_005,pass_005.mp4,NE_KC_2019_AFCCG,NE,KC,2,0:33,2,1,KC29,pass,touchdown_pass,29,complete,1,1,0,0,all22,00:33:21,00:33:24,00:33:39,Brady to Dorsett for 29-yard touchdown
+pass_006,pass_006.mp4,NE_KC_2019_AFCCG,KC,NE,3,14:14,3,2,KC34,pass,deep_middle,54,complete,1,0,0,0,all22,00:36:57,00:37:00,00:37:16,Mahomes to Watkins for 54 yards
+pass_007,pass_007.mp4,NE_KC_2019_AFCCG,KC,NE,3,13:28,1,10,NE12,pass,touchdown_pass,12,complete,1,1,0,0,all22,00:37:36,00:37:38,00:37:50,Mahomes to Kelce for 12-yard touchdown
+run_009,run_009.mp4,NE_KC_2019_AFCCG,KC,NE,3,10:08,2,8,KC6,run,up_middle,10,rush,1,0,0,0,all22,00:43:14,00:43:17,00:43:29,Damien Williams up the middle for 10 yards
+run_010,run_010.mp4,NE_KC_2019_AFCCG,KC,NE,3,2:27,2,6,KC40,run,up_middle,3,rush,0,0,0,0,all22,00:52:09,00:52:12,00:52:21,Damien Williams up the middle for 3 yards
+pass_008,pass_008.mp4,NE_KC_2019_AFCCG,KC,NE,3,1:09,1,10,NE47,pass,short_right,33,complete,1,0,0,0,all22,00:53:07,00:53:10,00:53:23,Mahomes to Damien Williams for 33 yards
+pass_009,pass_009.mp4,NE_KC_2019_AFCCG,KC,NE,4,14:56,1,1,NE1,pass,touchdown_pass,1,complete,1,1,0,0,all22,00:54:40,00:54:43,00:54:56,Mahomes to Damien Williams for 1-yard touchdown
+run_011,run_011.mp4,NE_KC_2019_AFCCG,NE,KC,4,13:51,2,9,NE44,run,up_middle,10,rush,1,0,0,0,all22,00:57:23,00:57:25,00:57:36,Michel up the middle for 10 yards
+run_012,run_012.mp4,NE_KC_2019_AFCCG,KC,NE,4,9:33,1,10,KC25,run,up_middle,2,rush,0,0,0,0,all22,01:00:42,01:00:45,01:00:54,Damien Williams up the middle for 2 yards
+pass_010,pass_010.mp4,NE_KC_2019_AFCCG,NE,KC,4,8:28,2,8,NE30,pass,deep_left,0,interception,0,0,1,0,all22,01:03:19,01:03:22,01:03:38,Brady intended for Edelman; intercepted by Sorensen
+pass_011,pass_011.mp4,NE_KC_2019_AFCCG,KC,NE,4,7:52,2,10,NE23,pass,touchdown_pass,23,complete,1,1,0,0,all22,01:04:26,01:04:29,01:04:44,Mahomes to Damien Williams for 23-yard touchdown
+run_013,run_013.mp4,NE_KC_2019_AFCCG,NE,KC,4,6:10,1,10,KC44,run,left_tackle,14,rush,1,0,0,0,all22,01:08:31,01:08:34,01:08:43,Burkhead left tackle for 14 yards
+run_014,run_014.mp4,NE_KC_2019_AFCCG,NE,KC,4,3:50,4,1,KC10,run,rush_touchdown,10,rush,1,1,0,0,all22,01:10:40,01:10:43,01:10:54,Michel 10-yard touchdown run on 4th-and-1
+pass_012,pass_012.mp4,NE_KC_2019_AFCCG,KC,NE,4,2:55,2,10,NE40,pass,short_left,38,complete,1,0,0,1,all22,01:15:00,01:15:04,01:15:15,Mahomes to Watkins for 38 yards
+run_015,run_015.mp4,NE_KC_2019_AFCCG,KC,NE,4,2:35,1,2,NE2,run,rush_touchdown,2,rush,1,1,0,0,all22,01:15:30,01:15:34,01:15:42,Damien Williams 2-yard touchdown run
+pass_013,pass_013.mp4,NE_KC_2019_AFCCG,NE,KC,4,0:54,3,5,KC29,pass,deep_left,25,complete,1,0,0,0,all22,01:19:36,01:19:39,01:19:53,Brady to Gronkowski for 25 yards
+pass_014,pass_014.mp4,NE_KC_2019_AFCCG,KC,NE,4,0:23,1,10,NE48,pass,deep_left,27,complete,1,0,0,1,all22,01:22:18,01:22:21,01:22:37,Mahomes to Demarcus Robinson for 27 yards; defensive offside declined
+pass_015,pass_015.mp4,NE_KC_2019_AFCCG,NE,KC,OT,13:40,3,10,NE35,pass,short_middle,20,complete,1,0,0,0,all22,01:26:43,01:26:46,01:27:00,Brady to Edelman for 20 yards
