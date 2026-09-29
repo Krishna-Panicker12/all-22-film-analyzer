@@ -1,0 +1,208 @@
+{
+  "clip": "C:\\Users\\krish\\all-22-film-project\\data\\plays\\game_01\\pass_001.mp4",
+  "frame": 148,
+  "seconds": 4.938266666666666,
+  "review_target": "helmet",
+  "review_complete": true,
+  "manual_labels": [
+    {
+      "kind": "helmet",
+      "box": [
+        717,
+        114,
+        729,
+        130
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        716,
+        189,
+        729,
+        206
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        724,
+        218,
+        737,
+        234
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        731,
+        247,
+        744,
+        264
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        720,
+        269,
+        734,
+        287
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        763,
+        250,
+        777,
+        266
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        752,
+        300,
+        766,
+        316
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        766,
+        320,
+        781,
+        339
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        997,
+        234,
+        1012,
+        252
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        878,
+        408,
+        894,
+        426
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        870,
+        565,
+        885,
+        583
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        811,
+        562,
+        825,
+        579
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        726,
+        427,
+        740,
+        445
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        707,
+        347,
+        720,
+        363
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        686,
+        278,
+        700,
+        297
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        662,
+        269,
+        676,
+        287
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        672,
+        212,
+        686,
+        231
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        619,
+        150,
+        633,
+        169
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        596,
+        120,
+        610,
+        136
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        420,
+        146,
+        434,
+        163
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        548,
+        277,
+        561,
+        296
+      ]
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        204,
+        352,
+        219,
+        369
+      ]
+    }
+  ],
+  "review_note": "Manually reviewed from original pixels by assistant; backup in outputs/helmet_manual_review/backup."
+}

@@ -13,6 +13,7 @@ METADATA_CSV = PROJECT_ROOT / "data" / "metadata" / f"{GAME_NAME}_md.csv"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "plays" / GAME_NAME
 
 REQUIRED_COLUMNS = {
+    "play_type",
     "play_id",
     "clip_file",
     "clip_start",
@@ -91,6 +92,10 @@ def load_and_validate_metadata(csv_path, video_duration):
                     "Check for two plays joined onto one line "
                     "or an unexpected comma."
                 )
+
+            # This dataset is exclusively for pass-defense analysis.
+            if row["play_type"].strip().lower() != "pass":
+                continue
 
             play_id = row["play_id"].strip()
             clip_file = row["clip_file"].strip()
@@ -195,7 +200,7 @@ def main():
         video_duration,
     )
 
-    print(f"Metadata validated: {len(rows)} plays")
+    print(f"Metadata validated: {len(rows)} pass plays (non-pass rows skipped)")
     print(f"Output folder: {OUTPUT_DIR}\n")
 
     for index, row in enumerate(rows, start=1):

@@ -1,0 +1,31 @@
+{
+  "clip": "C:\\Users\\krish\\all-22-film-project\\data\\plays\\game_01\\pass_001.mp4",
+  "frame": 306,
+  "seconds": 10.2102,
+  "review_target": "helmet",
+  "review_complete": true,
+  "review_note": "Assistant-reviewed held-out action frame. 21 visible helmets; one red lineman is fully occluded and is not labeled.",
+  "manual_labels": [
+    {"kind":"helmet","box":[650,240,659,251],"team":"KC"},
+    {"kind":"helmet","box":[890,244,901,256],"team":"NE"},
+    {"kind":"helmet","box":[848,355,860,368],"team":"KC"},
+    {"kind":"helmet","box":[714,205,725,218],"team":"NE"},
+    {"kind":"helmet","box":[687,277,698,291],"team":"KC"},
+    {"kind":"helmet","box":[889,169,900,181],"team":"NE"},
+    {"kind":"helmet","box":[571,252,580,263],"team":"KC"},
+    {"kind":"helmet","box":[1034,248,1042,259],"team":"NE"},
+    {"kind":"helmet","box":[860,544,871,557],"team":"NE"},
+    {"kind":"helmet","box":[175,348,187,362],"team":"KC"},
+    {"kind":"helmet","box":[807,548,819,562],"team":"KC"},
+    {"kind":"helmet","box":[898,328,908,340],"team":"NE"},
+    {"kind":"helmet","box":[963,247,975,260],"team":"NE"},
+    {"kind":"helmet","box":[816,242,827,254],"team":"NE"},
+    {"kind":"helmet","box":[453,128,463,140],"team":"KC"},
+    {"kind":"helmet","box":[804,267,815,279],"team":"KC"},
+    {"kind":"helmet","box":[578,176,589,189],"team":"KC"},
+    {"kind":"helmet","box":[831,267,842,281],"team":"NE"},
+    {"kind":"helmet","box":[660,133,671,145],"team":"NE"},
+    {"kind":"helmet","box":[835,184,847,198],"team":"KC"},
+    {"kind":"helmet","box":[790,235,802,249],"team":"NE"}
+  ]
+}

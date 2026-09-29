@@ -1,0 +1,16 @@
+game_id,play_id,clip_file,offense,defense,angle,tracking_start_seconds,pre_snap_frame_seconds,snap_time_seconds,notes
+NE_KC_2019_AFCCG,pass_001,data/plays/game_01/pass_001.mp4,NE,KC,all22,4,5.005000,,Agent visually selected frame 150; preliminary 2_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_002,data/plays/game_01/pass_002.mp4,NE,KC,all22,3,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_003,data/plays/game_01/pass_003.mp4,KC,NE,all22,4,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_004,data/plays/game_01/pass_004.mp4,NE,KC,all22,3,4.004000,,Agent visually selected frame 120; preliminary 2_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_005,data/plays/game_01/pass_005.mp4,NE,KC,all22,3,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_006,data/plays/game_01/pass_006.mp4,KC,NE,all22,3,5.005000,,Agent visually selected frame 150; preliminary unknown; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_007,data/plays/game_01/pass_007.mp4,KC,NE,all22,2,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_008,data/plays/game_01/pass_008.mp4,KC,NE,all22,3,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_009,data/plays/game_01/pass_009.mp4,KC,NE,all22,3,5.005000,,Agent visually selected frame 150; preliminary 0_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_010,data/plays/game_01/pass_010.mp4,NE,KC,all22,3,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_011,data/plays/game_01/pass_011.mp4,KC,NE,all22,3,5.005000,,Agent visually selected frame 150; preliminary unknown; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_012,data/plays/game_01/pass_012.mp4,KC,NE,all22,4,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_013,data/plays/game_01/pass_013.mp4,NE,KC,all22,3,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_014,data/plays/game_01/pass_014.mp4,KC,NE,all22,3,5.005000,,Agent visually selected frame 150; preliminary 1_high; human review and exact snap timing pending.
+NE_KC_2019_AFCCG,pass_015,data/plays/game_01/pass_015.mp4,NE,KC,all22,3,5.005000,,Agent visually selected frame 150; preliminary 2_high; human review and exact snap timing pending.

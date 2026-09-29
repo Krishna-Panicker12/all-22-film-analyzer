@@ -5,3 +5,7 @@ __pycache__/
 data/raw/
 data/plays/
 data/processed/
+models/*.pt
+outputs/
+data/annotations/**/original.png
+runs/

@@ -1,0 +1,12 @@
+{
+  "play_id": "synthetic_example",
+  "geometry": {"depth_threshold": 10, "lateral_limit": 18, "middle_limit": 6, "margin": 1},
+  "pre_snap": {
+    "complete": true,
+    "defenders": [{"lateral": -8, "depth": 14}, {"lateral": 8, "depth": 14}, {"lateral": 0, "depth": 4}]
+  },
+  "post_snap": {
+    "complete": true,
+    "defenders": [{"lateral": 0, "depth": 16}, {"lateral": 8, "depth": 5}, {"lateral": 0, "depth": 3}]
+  }
+}
