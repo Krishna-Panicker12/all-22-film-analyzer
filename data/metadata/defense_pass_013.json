@@ -1,0 +1,78 @@
+{
+  "play_id": "pass_013",
+  "video": "data/plays/passes/game_01__pass_013.mp4",
+  "offense": "NE",
+  "defense": "KC",
+  "defense_color": "red",
+  "start_frame": 285,
+  "pre_frame": 300,
+  "snap_frame": 308,
+  "snap_source": "agent visual timeline estimate; midpoint of 15-frame bracket; not human verified",
+  "snap_uncertainty_frames": 8,
+  "snap_review_bracket": [
+    300,
+    315
+  ],
+  "secondary_visible": true,
+  "field_polygon_at_start": [
+    [
+      3,
+      3
+    ],
+    [
+      1276,
+      3
+    ],
+    [
+      1276,
+      716
+    ],
+    [
+      3,
+      716
+    ]
+  ],
+  "geometry_at_pre": {
+    "los_center": [
+      457.5,
+      342.5
+    ],
+    "depth_axis": [
+      1,
+      0
+    ],
+    "lateral_axis": [
+      0.4,
+      1
+    ],
+    "pixels_per_yard": {
+      "depth": 27.5,
+      "lateral": 12.5
+    },
+    "corner_lateral_min": 62.5,
+    "corner_lateral_limit": 375.0,
+    "corner_depth_margin": 55.0,
+    "thresholds": {
+      "depth_threshold": 220.0,
+      "lateral_limit": 250.0,
+      "middle_limit": 125.0,
+      "margin": 27.5
+    }
+  },
+  "geometry_notes": "Approximate local LOS and yard-line basis visually estimated on snap-review sheet. Full cropped-frame polygon can include sidelines. Not calibrated field coordinates; retain provisional outputs.",
+  "corner_bubble_yards": 6,
+  "post_seconds": 2.3,
+  "receiver_following_enabled": true,
+  "review_context": {
+    "pre_shell": "1_high",
+    "coverage": "cover_1_man",
+    "source": "saved_agent_visual_sequence_review",
+    "human_verified": false,
+    "note": "Display fallback only, never detector input or verified label.",
+    "coverage_evidence_frames": [
+      360,
+      390
+    ]
+  },
+  "game_id": "game_01"
+}

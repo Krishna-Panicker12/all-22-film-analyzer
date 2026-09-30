@@ -1,32 +1,231 @@
 {
-  "clip": "C:\\Users\\krish\\all-22-film-project\\data\\plays\\game_01\\pass_001.mp4",
+  "clip": "C:\\Users\\krish\\all-22-film-project\\data\\plays\\passes\\game_01__pass_001.mp4",
   "frame": 182,
   "seconds": 6.0727,
   "review_target": "helmet",
   "review_complete": true,
   "review_note": "Assistant-reviewed hard example. All 22 on-field helmets labeled; painted yard marker intentionally remains background.",
   "manual_labels": [
-    {"kind":"helmet","box":[752,116,763,130],"team":"NE"},
-    {"kind":"helmet","box":[909,562,921,576],"team":"NE"},
-    {"kind":"helmet","box":[584,259,596,272],"team":"KC"},
-    {"kind":"helmet","box":[767,250,778,263],"team":"NE"},
-    {"kind":"helmet","box":[745,197,754,208],"team":"NE"},
-    {"kind":"helmet","box":[788,302,800,315],"team":"NE"},
-    {"kind":"helmet","box":[748,342,760,356],"team":"KC"},
-    {"kind":"helmet","box":[664,110,675,123],"team":"KC"},
-    {"kind":"helmet","box":[1030,238,1042,251],"team":"NE"},
-    {"kind":"helmet","box":[415,149,427,164],"team":"KC"},
-    {"kind":"helmet","box":[178,355,189,367],"team":"KC"},
-    {"kind":"helmet","box":[755,278,767,292],"team":"NE"},
-    {"kind":"helmet","box":[912,409,925,424],"team":"NE"},
-    {"kind":"helmet","box":[758,222,770,235],"team":"NE"},
-    {"kind":"helmet","box":[731,288,742,302],"team":"KC"},
-    {"kind":"helmet","box":[625,241,637,256],"team":"KC"},
-    {"kind":"helmet","box":[675,158,689,173],"team":"KC"},
-    {"kind":"helmet","box":[775,433,787,447],"team":"KC"},
-    {"kind":"helmet","box":[799,321,812,335],"team":"NE"},
-    {"kind":"helmet","box":[703,236,714,250],"team":"KC"},
-    {"kind":"helmet","box":[799,259,812,273],"team":"NE"},
-    {"kind":"helmet","box":[848,568,857,579],"team":"KC"}
-  ]
+    {
+      "kind": "helmet",
+      "box": [
+        752,
+        116,
+        763,
+        130
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        909,
+        562,
+        921,
+        576
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        584,
+        259,
+        596,
+        272
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        767,
+        250,
+        778,
+        263
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        745,
+        197,
+        754,
+        208
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        788,
+        302,
+        800,
+        315
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        748,
+        342,
+        760,
+        356
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        664,
+        110,
+        675,
+        123
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        1030,
+        238,
+        1042,
+        251
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        415,
+        149,
+        427,
+        164
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        178,
+        355,
+        189,
+        367
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        755,
+        278,
+        767,
+        292
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        912,
+        409,
+        925,
+        424
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        758,
+        222,
+        770,
+        235
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        731,
+        288,
+        742,
+        302
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        625,
+        241,
+        637,
+        256
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        675,
+        158,
+        689,
+        173
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        775,
+        433,
+        787,
+        447
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        799,
+        321,
+        812,
+        335
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        703,
+        236,
+        714,
+        250
+      ],
+      "team": "KC"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        799,
+        259,
+        812,
+        273
+      ],
+      "team": "NE"
+    },
+    {
+      "kind": "helmet",
+      "box": [
+        848,
+        568,
+        857,
+        579
+      ],
+      "team": "KC"
+    }
+  ],
+  "game_id": "game_01"
 }

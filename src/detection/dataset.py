@@ -6,6 +6,7 @@ from pathlib import Path
 
 import cv2
 import yaml
+from src.data.catalog import game_identity
 
 
 def sha256(path):
@@ -63,7 +64,7 @@ def validate_dataset(config):
                 raise ValueError(f"Dataset changed after export: {image.name}. Re-export reviewed labels.")
             if record["image_sha256"] in images:
                 raise ValueError("Duplicate image content in dataset")
-            game = str(Path(record["clip"]).parent).casefold()
+            game = game_identity(record['clip'],record.get('game_id'))
             identity = (str(Path(record["clip"])).casefold(), record["frame"])
             if identity in identities or (game in games and games[game] != split):
                 raise ValueError("Frame or game leakage between dataset splits")
@@ -84,6 +85,6 @@ def validate_dataset(config):
         if positives == 0:
             raise ValueError(f"No positive {target} labels in {split}")
         report[split] = {"images": len(records), "objects": positives,
-                         "games": len({str(Path(r['clip']).parent).casefold() for r in records})}
+                         "games": len({game_identity(r['clip'],r.get('game_id')) for r in records})}
     return {"yaml": str(config), "root": root, "target": target, "manifest": manifest,
             "manifest_sha256": sha256(manifest_file), "counts": report}

@@ -1,5 +1,5 @@
 {
-  "clip": "C:\\Users\\krish\\all-22-film-project\\data\\plays\\game_01\\pass_001.mp4",
+  "clip": "C:\\Users\\krish\\all-22-film-project\\data\\plays\\passes\\game_01__pass_001.mp4",
   "frame": 141,
   "seconds": 4.7047,
   "review_target": "helmet",
@@ -204,5 +204,6 @@
       ]
     }
   ],
-  "review_note": "Manually reviewed from original pixels by assistant; backup in outputs/helmet_manual_review/backup."
+  "review_note": "Manually reviewed from original pixels by assistant; backup in outputs/helmet_manual_review/backup.",
+  "game_id": "game_01"
 }

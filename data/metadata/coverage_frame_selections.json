@@ -6,20 +6,157 @@
   "human_verified": false,
   "notes": "Coverage candidates inferred from sequential post-snap defender movement, not pre-snap shell alone. Exact snap frames have not been established. Confidence is subjective. Mixed and match coverages can resemble these broad families; final labels require football review.",
   "plays": [
-    {"play_id":"pass_001","frames":[330,360],"coverage":"cover_2_man","confidence":0.78,"notes":"Two deep support defenders persist while near-side and interior defenders carry individual receivers. Candidate 2-Man; verify underneath assignments against match-zone alternatives."},
-    {"play_id":"pass_002","frames":[360,390],"coverage":"cover_1_man","confidence":0.82,"notes":"One central deep support defender remains while outside and inside defenders follow receiver releases; underneath help does not form a second deep half."},
-    {"play_id":"pass_003","frames":[450,480],"coverage":"cover_1_man","confidence":0.85,"notes":"One deep middle defender remains free while defenders travel with the outside routes and the interior crossing release."},
-    {"play_id":"pass_004","frames":[210,240],"coverage":"cover_2_man","confidence":0.76,"notes":"Two separated deep support defenders remain behind underneath receiver-defender pairings; outside defenders carry vertical releases. Candidate 2-Man, with match-zone alternative requiring review."},
-    {"play_id":"pass_005","frames":[390,420],"coverage":"unknown_coverage","confidence":0.45,"notes":"Outside defenders carry vertical routes, but underneath spacing and exchanges do not reliably distinguish Cover 1 from Cover 3 or a match variant. Do not infer coverage from the earlier one-high shell."},
-    {"play_id":"pass_006","frames":[240,270],"coverage":"cover_1_man","confidence":0.83,"notes":"A central post defender gains depth while outside and interior defenders remain attached to receiver releases, including the crossing action."},
-    {"play_id":"pass_007","frames":[330,360],"coverage":"cover_1_man","confidence":0.78,"notes":"Red-zone sequence shows a central deep helper and underneath defenders carrying routes across the formation and toward the sidelines; compressed depth makes this a review candidate."},
-    {"play_id":"pass_008","frames":[270,300],"coverage":"cover_1_man","confidence":0.83,"notes":"Single deep middle support persists; underneath and outside defenders turn and travel with individual routes. The uncovered release later in the play does not establish a different coverage call."},
-    {"play_id":"pass_009","frames":[360,390],"coverage":"unknown_coverage","confidence":0.35,"notes":"Compressed goal-line play with play-action and defenders holding or exchanging near the goal line. No-high pre-snap structure alone is not evidence of Cover 0 man; assignments cannot be established confidently."},
-    {"play_id":"pass_010","frames":[270,300],"coverage":"unknown_coverage","confidence":0.45,"notes":"Zone-like underneath spacing and multiple deep defenders emerge, but deep-third versus deep-half responsibilities are not clear enough to distinguish Cover 3 zone from Cover 2 zone or a match variant."},
-    {"play_id":"pass_011","frames":[330,360],"coverage":"unknown_coverage","confidence":0.40,"notes":"Shallow staggered secondary fans out, with receiver matching and central help; these views do not establish four deep quarter responsibilities or distinguish split-field/match from man assignments."},
-    {"play_id":"pass_012","frames":[240,270],"coverage":"cover_1_man","confidence":0.82,"notes":"A single deep middle helper stays behind defenders carrying near-side and interior receiver releases. Collision and a falling defender limit certainty about the full assignment pattern."},
-    {"play_id":"pass_013","frames":[360,390],"coverage":"cover_1_man","confidence":0.85,"notes":"Single post support with tight outside receiver pairings and underneath defenders following releases across the field; no second persistent deep-half safety."},
-    {"play_id":"pass_014","frames":[420,450],"coverage":"cover_1_man","confidence":0.88,"notes":"One free deep post defender stays central while four visible receiver-defender pairs travel downfield or across the formation."},
-    {"play_id":"pass_015","frames":[330,360],"coverage":"cover_2_man","confidence":0.85,"notes":"Two separated deep helpers stay over the top while the near outside defender and underneath defenders follow individual releases, including the crossing route. Candidate 2-Man."}
+    {
+      "play_id": "pass_001",
+      "frames": [
+        330,
+        360
+      ],
+      "coverage": "cover_2_man",
+      "confidence": 0.78,
+      "notes": "Two deep support defenders persist while near-side and interior defenders carry individual receivers. Candidate 2-Man; verify underneath assignments against match-zone alternatives."
+    },
+    {
+      "play_id": "pass_002",
+      "frames": [
+        360,
+        390
+      ],
+      "coverage": "cover_3_zone",
+      "confidence": 0.82,
+      "notes": "User corrected screenshot: corners drop to outside thirds, one high safety, underneath defenders occupy space rather than all matching targets.",
+      "label_source": "user_correction",
+      "human_verified": true
+    },
+    {
+      "play_id": "pass_003",
+      "frames": [
+        450,
+        480
+      ],
+      "coverage": "cover_1_man",
+      "confidence": 0.85,
+      "notes": "One deep middle defender remains free while defenders travel with the outside routes and the interior crossing release."
+    },
+    {
+      "play_id": "pass_004",
+      "frames": [
+        210,
+        240
+      ],
+      "coverage": "cover_2_man",
+      "confidence": 0.76,
+      "notes": "Two separated deep support defenders remain behind underneath receiver-defender pairings; outside defenders carry vertical releases. Candidate 2-Man, with match-zone alternative requiring review."
+    },
+    {
+      "play_id": "pass_005",
+      "frames": [
+        390,
+        420
+      ],
+      "coverage": "unknown_coverage",
+      "confidence": 0.45,
+      "notes": "Outside defenders carry vertical routes, but underneath spacing and exchanges do not reliably distinguish Cover 1 from Cover 3 or a match variant. Do not infer coverage from the earlier one-high shell."
+    },
+    {
+      "play_id": "pass_006",
+      "frames": [
+        240,
+        270
+      ],
+      "coverage": "cover_1_man",
+      "confidence": 0.83,
+      "notes": "A central post defender gains depth while outside and interior defenders remain attached to receiver releases, including the crossing action."
+    },
+    {
+      "play_id": "pass_007",
+      "frames": [
+        330,
+        360
+      ],
+      "coverage": "cover_1_man",
+      "confidence": 0.78,
+      "notes": "Red-zone sequence shows a central deep helper and underneath defenders carrying routes across the formation and toward the sidelines; compressed depth makes this a review candidate."
+    },
+    {
+      "play_id": "pass_008",
+      "frames": [
+        270,
+        300
+      ],
+      "coverage": "cover_1_man",
+      "confidence": 0.83,
+      "notes": "Single deep middle support persists; underneath and outside defenders turn and travel with individual routes. The uncovered release later in the play does not establish a different coverage call."
+    },
+    {
+      "play_id": "pass_009",
+      "frames": [
+        360,
+        390
+      ],
+      "coverage": "unknown_coverage",
+      "confidence": 0.35,
+      "notes": "Compressed goal-line play with play-action and defenders holding or exchanging near the goal line. No-high pre-snap structure alone is not evidence of Cover 0 man; assignments cannot be established confidently."
+    },
+    {
+      "play_id": "pass_010",
+      "frames": [
+        270,
+        300
+      ],
+      "coverage": "unknown_coverage",
+      "confidence": 0.45,
+      "notes": "Zone-like underneath spacing and multiple deep defenders emerge, but deep-third versus deep-half responsibilities are not clear enough to distinguish Cover 3 zone from Cover 2 zone or a match variant."
+    },
+    {
+      "play_id": "pass_011",
+      "frames": [
+        330,
+        360
+      ],
+      "coverage": "unknown_coverage",
+      "confidence": 0.4,
+      "notes": "Shallow staggered secondary fans out, with receiver matching and central help; these views do not establish four deep quarter responsibilities or distinguish split-field/match from man assignments."
+    },
+    {
+      "play_id": "pass_012",
+      "frames": [
+        240,
+        270
+      ],
+      "coverage": "cover_1_man",
+      "confidence": 0.82,
+      "notes": "A single deep middle helper stays behind defenders carrying near-side and interior receiver releases. Collision and a falling defender limit certainty about the full assignment pattern."
+    },
+    {
+      "play_id": "pass_013",
+      "frames": [
+        360,
+        390
+      ],
+      "coverage": "cover_1_man",
+      "confidence": 0.85,
+      "notes": "Single post support with tight outside receiver pairings and underneath defenders following releases across the field; no second persistent deep-half safety."
+    },
+    {
+      "play_id": "pass_014",
+      "frames": [
+        420,
+        450
+      ],
+      "coverage": "cover_1_man",
+      "confidence": 0.88,
+      "notes": "One free deep post defender stays central while four visible receiver-defender pairs travel downfield or across the formation."
+    },
+    {
+      "play_id": "pass_015",
+      "frames": [
+        330,
+        360
+      ],
+      "coverage": "cover_2_man",
+      "confidence": 0.85,
+      "notes": "Two separated deep helpers stay over the top while the near outside defender and underneath defenders follow individual releases, including the crossing route. Candidate 2-Man."
+    }
   ]
 }

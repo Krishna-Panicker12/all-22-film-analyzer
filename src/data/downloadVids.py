@@ -1,6 +1,7 @@
 from pathlib import Path
 import subprocess
 import sys
+import argparse
 
 
 YOUTUBE_URL = "https://www.youtube.com/watch?v=Y722eYPrsts"
@@ -11,12 +12,16 @@ OUTPUT_DIR = PROJECT_ROOT / "data" / "raw"
 
 
 def main():
-    if YOUTUBE_URL == "PASTE_YOUTUBE_URL_HERE":
-        raise SystemExit("Paste the YouTube URL into YOUTUBE_URL first.")
+    parser=argparse.ArgumentParser(description='Download a supplied URL into the game.mp4 ingestion slot.')
+    parser.add_argument('url')
+    parser.add_argument('--output',type=Path,default=OUTPUT_DIR/'game.mp4')
+    args=parser.parse_args()
+    if args.output.exists(): raise SystemExit('Output already exists; choose another --output to preserve it.')
+    args.output.parent.mkdir(parents=True,exist_ok=True)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    output_template = OUTPUT_DIR / f"{GAME_NAME}.%(ext)s"
+    output_template = args.output.with_suffix('.%(ext)s')
 
     command = [
         sys.executable,
@@ -31,7 +36,7 @@ def main():
         "bv*[ext=mp4][height<=1080]+ba[ext=m4a]/b[ext=mp4][height<=1080]",
         "--merge-output-format", "mp4",
         "-o", str(output_template),
-        YOUTUBE_URL,
+        args.url,
     ]
 
     print(f"Downloading {GAME_NAME}...")
@@ -39,7 +44,7 @@ def main():
 
     subprocess.run(command, check=True)
 
-    expected_file = OUTPUT_DIR / f"{GAME_NAME}.mp4"
+    expected_file = args.output
 
     if expected_file.exists():
         print(f"\nDownload complete: {expected_file}")

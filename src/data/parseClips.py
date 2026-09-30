@@ -2,15 +2,17 @@ from pathlib import Path
 import csv
 import shutil
 import subprocess
+import argparse
+from .catalog import clip_name, PASS_DIR
 
 
 GAME_NAME = "game_01"
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-SOURCE_VIDEO = PROJECT_ROOT / "data" / "raw" / f"{GAME_NAME}.mp4"
+SOURCE_VIDEO = PROJECT_ROOT / "data" / "raw" / "game.mp4"
 METADATA_CSV = PROJECT_ROOT / "data" / "metadata" / f"{GAME_NAME}_md.csv"
-OUTPUT_DIR = PROJECT_ROOT / "data" / "plays" / GAME_NAME
+OUTPUT_DIR = PASS_DIR
 
 REQUIRED_COLUMNS = {
     "play_type",
@@ -156,7 +158,7 @@ def cut_clip(source_video, row, output_path):
         "ffmpeg",
         "-hide_banner",
         "-loglevel", "error",
-        "-y",
+        "-n",
         "-ss", row["clip_start"],
         "-i", str(source_video),
         "-t", f"{duration:.3f}",
@@ -176,35 +178,44 @@ def cut_clip(source_video, row, output_path):
 
 
 def main():
+    parser=argparse.ArgumentParser(description='Split metadata-defined pass plays into one shared folder.')
+    parser.add_argument('--source',type=Path,default=SOURCE_VIDEO)
+    parser.add_argument('--metadata',type=Path,default=METADATA_CSV)
+    parser.add_argument('--game-id',required=True,help='Unique game ID used to prevent filename collisions')
+    args=parser.parse_args()
+    source=args.source; metadata=args.metadata
     if shutil.which("ffmpeg") is None:
         raise SystemExit("FFmpeg was not found on PATH.")
 
     if shutil.which("ffprobe") is None:
         raise SystemExit("ffprobe was not found on PATH.")
 
-    if not SOURCE_VIDEO.exists():
-        raise SystemExit(f"Source video not found:\n{SOURCE_VIDEO}")
+    if not source.exists():
+        raise SystemExit(f"Source video not found:\n{source}")
 
-    if not METADATA_CSV.exists():
-        raise SystemExit(f"Metadata CSV not found:\n{METADATA_CSV}")
+    if not metadata.exists():
+        raise SystemExit(f"Metadata CSV not found:\n{metadata}")
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    video_duration = get_video_duration(SOURCE_VIDEO)
+    video_duration = get_video_duration(source)
 
-    print(f"Source video: {SOURCE_VIDEO.name}")
+    print(f"Source video: {source.name}")
     print(f"Duration: {video_duration:.2f} seconds\n")
 
     rows = load_and_validate_metadata(
-        METADATA_CSV,
+        metadata,
         video_duration,
     )
 
     print(f"Metadata validated: {len(rows)} pass plays (non-pass rows skipped)")
     print(f"Output folder: {OUTPUT_DIR}\n")
+    targets=[OUTPUT_DIR/clip_name(args.game_id,r['play_id']) for r in rows]
+    if any(p.exists() for p in targets):
+        raise SystemExit('A target clip already exists; use a new game ID. Nothing overwritten.')
 
     for index, row in enumerate(rows, start=1):
-        output_path = OUTPUT_DIR / row["clip_file"].strip()
+        output_path = OUTPUT_DIR / clip_name(args.game_id,row['play_id'])
 
         clip_start = timestamp_to_seconds(row["clip_start"])
         tracking = timestamp_to_seconds(row["tracking"])
@@ -222,7 +233,7 @@ def main():
         )
 
         cut_clip(
-            SOURCE_VIDEO,
+            source,
             row,
             output_path,
         )

@@ -1,0 +1,17 @@
+{
+  "game_01__pass_002": {
+    "frame_index": 377,
+    "source": "agent_visual_review_of_exact_freeze_frame; coverage corrected by user",
+    "human_verified_positions": false,
+    "geometry": {"depth_axis":[-1,0],"lateral_axis":[-0.55,1],"pixels_per_yard":{"depth":26,"lateral":12}},
+    "defenders": [
+      {"track_id":"review_CB_top","role":"CB","image_point":[709,153]},
+      {"track_id":"review_S_middle","role":"S","image_point":[349,336]},
+      {"track_id":"review_CB_bottom","role":"CB","image_point":[480,529]},
+      {"track_id":"review_under_top","role":"LB_or_DB","image_point":[665,292]},
+      {"track_id":"review_under_middle","role":"LB_or_DB","image_point":[553,405]},
+      {"track_id":"review_under_bottom","role":"LB_or_DB","image_point":[413,468]}
+    ],
+    "notes":"Six visible coverage-player candidates; remaining defender responsibilities unresolved, not fabricated. Zone boxes are illustrations, not measured assignments."
+  }
+}

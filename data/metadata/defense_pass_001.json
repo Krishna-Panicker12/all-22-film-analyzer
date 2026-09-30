@@ -1,0 +1,73 @@
+{
+  "play_id": "pass_001",
+  "video": "data/plays/passes/game_01__pass_001.mp4",
+  "offense": "NE",
+  "defense": "KC",
+  "defense_color": "red",
+  "start_frame": 240,
+  "pre_frame": 270,
+  "snap_frame": 283,
+  "snap_source": "agent visual estimate from frames 279-285; uncertainty about 3 frames, not human verified",
+  "post_seconds": 2.3,
+  "secondary_visible": true,
+  "field_polygon_at_start": [
+    [
+      5,
+      5
+    ],
+    [
+      1275,
+      5
+    ],
+    [
+      1275,
+      715
+    ],
+    [
+      5,
+      715
+    ]
+  ],
+  "geometry_at_pre": {
+    "los_center": [
+      788,
+      296
+    ],
+    "depth_axis": [
+      -1,
+      0.08
+    ],
+    "lateral_axis": [
+      0.32,
+      1
+    ],
+    "pixels_per_yard": {
+      "depth": 20.0,
+      "lateral": 12.0
+    },
+    "corner_lateral_min": 65,
+    "corner_lateral_limit": 330,
+    "corner_depth_margin": 80,
+    "thresholds": {
+      "depth_threshold": 200,
+      "lateral_limit": 220,
+      "middle_limit": 110,
+      "margin": 25
+    }
+  },
+  "corner_bubble_yards": 6.0,
+  "geometry_notes": "Manually estimated local image basis at frame 270. Positive depth points toward defensive backfield (left); lateral direction follows visible yard lines. The 20/12 pixels-per-yard scales are provisional visual estimates from this view and must be checked against yard-line spacing before treating bubbles as true 6-yard radii. Full-frame turf polygon is acceptable for this cropped view only.",
+  "receiver_following_enabled": true,
+  "review_context": {
+    "pre_shell": "2_high",
+    "coverage": "cover_2_man",
+    "source": "saved_agent_visual_sequence_review",
+    "human_verified": false,
+    "note": "Display fallback only, never detector input or verified label.",
+    "coverage_evidence_frames": [
+      330,
+      360
+    ]
+  },
+  "game_id": "game_01"
+}

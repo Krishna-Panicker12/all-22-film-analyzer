@@ -10,6 +10,7 @@ import shutil
 import hashlib
 
 import cv2
+from src.data.catalog import game_identity
 
 
 def read_labels(folder, target="player"):
@@ -55,7 +56,7 @@ def export_dataset(train_folder, val_folder, output, target="player", test_folde
             raise ValueError(f"{split} needs at least one positive {target} label.")
         for file, data, _ in rows:
             clip = str(Path(data["clip"]).resolve()).casefold()
-            game = str(Path(data["clip"]).resolve().parent).casefold()
+            game = game_identity(clip,data.get('game_id'))
             frame = (clip, data["frame"])
             digest = hashlib.sha256((file.parent / "original.png").read_bytes()).hexdigest()
             if game in seen_games and seen_games[game] != split:
@@ -83,7 +84,7 @@ def export_dataset(train_folder, val_folder, output, target="player", test_folde
                 image=image.relative_to(output).as_posix(), label=label.relative_to(output).as_posix(),
                 image_sha256=hashlib.sha256(image.read_bytes()).hexdigest(),
                 label_sha256=hashlib.sha256(label.read_bytes()).hexdigest(),
-                clip=str(Path(data["clip"]).resolve()), frame=data["frame"],
+                clip=str(Path(data["clip"]).resolve()), game_id=game_identity(data['clip'],data.get('game_id')), frame=data["frame"],
                 review=str(file.resolve())))
         (output / f"{split}_sources.json").write_text(json.dumps([str(row[0]) for row in rows], indent=2))
     (output / "dataset.yaml").write_text(

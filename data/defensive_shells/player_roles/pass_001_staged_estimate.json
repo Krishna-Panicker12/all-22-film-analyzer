@@ -1,0 +1,101 @@
+{
+  "pre_snap": {
+    "shell": "2_high",
+    "safety_candidate_ids": [
+      6,
+      9
+    ],
+    "candidates": [
+      "cover_2_man",
+      "cover_2_zone",
+      "cover_4_zone",
+      "cover_6_zone"
+    ],
+    "status": "provisional"
+  },
+  "post_snap": {
+    "shell": "1_high",
+    "safety_candidate_ids": [
+      105
+    ],
+    "candidates": [
+      "cover_1_man",
+      "cover_3_zone"
+    ],
+    "status": "provisional",
+    "rotation": {
+      "status": "unknown",
+      "stayed_high_ids": [],
+      "dropped_from_high_ids": [],
+      "new_high_ids": [],
+      "shell_transition": "2_high -> 1_high"
+    }
+  },
+  "corner_refinement": {
+    "candidates": [
+      "cover_1_man",
+      "cover_3_zone"
+    ],
+    "motion": "unknown",
+    "status": "provisional",
+    "alternative_candidates": [
+      "cover_1_man",
+      "cover_3_zone"
+    ],
+    "reason": "Displacement is weak man/zone evidence. Receiver following, route exchanges, and zone responsibilities are not measured."
+  },
+  "reference_context": [
+    {
+      "coverage": "cover_1_man",
+      "images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200604.png",
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200626.png",
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200644.png"
+      ],
+      "unmeasured": [
+        "receiver matchups",
+        "linebacker-to-back matchup",
+        "underneath hole responsibility"
+      ]
+    },
+    {
+      "coverage": "cover_2_invert",
+      "images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200934.png"
+      ],
+      "unmeasured": [
+        "rotation responsibility",
+        "underneath matchups"
+      ]
+    },
+    {
+      "coverage": "cover_3_buzz",
+      "images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 201017.png"
+      ],
+      "unmeasured": [
+        "buzz safety identity",
+        "deep-third distribution",
+        "receiver stems"
+      ]
+    },
+    {
+      "coverage": "cover_3_cloud",
+      "images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 201046.png"
+      ],
+      "unmeasured": [
+        "cloud corner identity",
+        "deep-third distribution",
+        "receiver stems"
+      ]
+    }
+  ],
+  "limitations": [
+    "Geometric safety candidates are not verified roster positions.",
+    "Match-zone can follow receivers; man defenders may move little.",
+    "Buzz, cloud, and invert require assignment evidence beyond shell counts."
+  ],
+  "source_report": "outputs\\defense_pass001_corner_rule_run002\\result.json",
+  "note": "Replay of existing detector observations, not a new detector run."
+}

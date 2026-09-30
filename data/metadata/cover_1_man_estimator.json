@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "coverage": "cover_1_man",
+  "reference_source": "user-provided Cover 1 vs Slot, Cover 1 vs I Tight, and alignment diagrams (2026-09-29)",
+  "reference_images_saved": false,
+  "reference_image_note": "The uploaded image binaries were not available as workspace files; this JSON preserves their interpreted cues. Save the originals under data/defensive_shells/coverages/references/ to retain the images themselves.",
+  "shell_requirements": {
+    "accepted_post_shell": "1_high",
+    "deep_middle_safety_count": 1,
+    "allow_pre_shells": ["1_high", "2_high", "unknown"]
+  },
+  "man_evidence": {
+    "corner_motion": "man_like",
+    "corner_radius_yards": 6.0,
+    "majority_required": true,
+    "additional_visual_cues": [
+      "corner travels with the slot receiver",
+      "outside corners align in inside shade when plus split is used",
+      "underneath defenders carry X, Y, and Z releases",
+      "linebackers track the running back or fullback",
+      "a deep middle safety remains as the post defender",
+      "an underneath hole defender may rob crossers"
+    ]
+  },
+  "cues_not_yet_measured": [
+    "receiver-to-defender route matching",
+    "linebacker-to-running-back/fullback assignment",
+    "inside-shade alignment relative to receiver split",
+    "underneath hole responsibility"
+  ],
+  "decision_status": "candidate_only_until_offensive_routes_and_assignments_are_observed"
+}

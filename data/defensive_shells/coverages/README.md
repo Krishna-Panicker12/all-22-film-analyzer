@@ -53,9 +53,11 @@ elapsed time after the snap. The old tracking marker must not be used as snap ti
   train/validation/test splits. Obtain other games before reporting held-out
   performance. This small, imbalanced starter set does not cover all classes.
 
-These references extend the dataset at the user's request. The runtime geometric
-shell classifier remains a shell baseline and does not automatically infer coverage.
-Pre-snap labels and source videos were not modified by this coverage pass.
+These references extend the dataset at the user's request. The runtime shell and
+corner estimator can emit provisional candidates using the user-provided
+[coverage reference playbook](reference_playbook.md). It does not verify receiver
+assignments, so candidates are not confirmed coverage labels. Pre-snap labels
+and source videos were not modified by this coverage pass.
 
 Terminology references: [USA Football on reading defensive coverage](https://blogs.usafootball.com/blog/730/rcfamilies.com)
 and [NFL.com on single-high coverage families](https://www.nfl.com/news/seattle-seahawks-defense-must-adjust-to-vulnerabilities-0ap3000000561985).

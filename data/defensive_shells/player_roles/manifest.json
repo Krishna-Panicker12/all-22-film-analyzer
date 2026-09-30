@@ -1,0 +1,272 @@
+[
+  {
+    "play_id": "pass_001",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_001_pre_original.jpg",
+    "annotated": "pass_001_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_001",
+    "phase": "post",
+    "frame_index": 330,
+    "time_seconds": 11.011000000000001,
+    "original": "pass_001_post_original.jpg",
+    "annotated": "pass_001_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_002",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_002_pre_original.jpg",
+    "annotated": "pass_002_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_002",
+    "phase": "post",
+    "frame_index": 360,
+    "time_seconds": 12.012,
+    "original": "pass_002_post_original.jpg",
+    "annotated": "pass_002_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_003",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_003_pre_original.jpg",
+    "annotated": "pass_003_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_003",
+    "phase": "post",
+    "frame_index": 450,
+    "time_seconds": 15.015,
+    "original": "pass_003_post_original.jpg",
+    "annotated": "pass_003_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_004",
+    "phase": "pre",
+    "frame_index": 120,
+    "time_seconds": 4.0040000000000004,
+    "original": "pass_004_pre_original.jpg",
+    "annotated": "pass_004_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_004",
+    "phase": "post",
+    "frame_index": 210,
+    "time_seconds": 7.007000000000001,
+    "original": "pass_004_post_original.jpg",
+    "annotated": "pass_004_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_005",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_005_pre_original.jpg",
+    "annotated": "pass_005_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_005",
+    "phase": "post",
+    "frame_index": 390,
+    "time_seconds": 13.013,
+    "original": "pass_005_post_original.jpg",
+    "annotated": "pass_005_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_006",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_006_pre_original.jpg",
+    "annotated": "pass_006_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_006",
+    "phase": "post",
+    "frame_index": 240,
+    "time_seconds": 8.008000000000001,
+    "original": "pass_006_post_original.jpg",
+    "annotated": "pass_006_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_007",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_007_pre_original.jpg",
+    "annotated": "pass_007_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_007",
+    "phase": "post",
+    "frame_index": 330,
+    "time_seconds": 11.011000000000001,
+    "original": "pass_007_post_original.jpg",
+    "annotated": "pass_007_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_008",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_008_pre_original.jpg",
+    "annotated": "pass_008_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_008",
+    "phase": "post",
+    "frame_index": 270,
+    "time_seconds": 9.009,
+    "original": "pass_008_post_original.jpg",
+    "annotated": "pass_008_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_009",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_009_pre_original.jpg",
+    "annotated": "pass_009_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_009",
+    "phase": "post",
+    "frame_index": 360,
+    "time_seconds": 12.012,
+    "original": "pass_009_post_original.jpg",
+    "annotated": "pass_009_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_010",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_010_pre_original.jpg",
+    "annotated": "pass_010_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_010",
+    "phase": "post",
+    "frame_index": 270,
+    "time_seconds": 9.009,
+    "original": "pass_010_post_original.jpg",
+    "annotated": "pass_010_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_011",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_011_pre_original.jpg",
+    "annotated": "pass_011_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_011",
+    "phase": "post",
+    "frame_index": 330,
+    "time_seconds": 11.011000000000001,
+    "original": "pass_011_post_original.jpg",
+    "annotated": "pass_011_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_012",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_012_pre_original.jpg",
+    "annotated": "pass_012_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_012",
+    "phase": "post",
+    "frame_index": 240,
+    "time_seconds": 8.008000000000001,
+    "original": "pass_012_post_original.jpg",
+    "annotated": "pass_012_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_013",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_013_pre_original.jpg",
+    "annotated": "pass_013_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_013",
+    "phase": "post",
+    "frame_index": 360,
+    "time_seconds": 12.012,
+    "original": "pass_013_post_original.jpg",
+    "annotated": "pass_013_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_014",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_014_pre_original.jpg",
+    "annotated": "pass_014_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_014",
+    "phase": "post",
+    "frame_index": 420,
+    "time_seconds": 14.014000000000001,
+    "original": "pass_014_post_original.jpg",
+    "annotated": "pass_014_post_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_015",
+    "phase": "pre",
+    "frame_index": 150,
+    "time_seconds": 5.005,
+    "original": "pass_015_pre_original.jpg",
+    "annotated": "pass_015_pre_annotated.jpg",
+    "human_verified": false
+  },
+  {
+    "play_id": "pass_015",
+    "phase": "post",
+    "frame_index": 330,
+    "time_seconds": 11.011000000000001,
+    "original": "pass_015_post_original.jpg",
+    "annotated": "pass_015_post_annotated.jpg",
+    "human_verified": false
+  }
+]

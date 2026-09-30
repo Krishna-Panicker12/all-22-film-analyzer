@@ -1,0 +1,107 @@
+[
+  {
+    "game_id": "game_01",
+    "play_id": "pass_001",
+    "path": "data/plays/passes/game_01__pass_001.mp4",
+    "sha256": "ab32e3511778f5ee13b196734b2647c2960c1726106268242779169abfbe6276",
+    "legacy_path": "data/plays/game_01/pass_001.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_002",
+    "path": "data/plays/passes/game_01__pass_002.mp4",
+    "sha256": "fef14dc5bd810cee203a636826a4e60d200d8128d6d73413f3deaba83a7ead4a",
+    "legacy_path": "data/plays/game_01/pass_002.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_003",
+    "path": "data/plays/passes/game_01__pass_003.mp4",
+    "sha256": "da1e51eca23d662fe9587781ca2f5f8f97ad472982a7b1182ab8f398793b6e50",
+    "legacy_path": "data/plays/game_01/pass_003.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_004",
+    "path": "data/plays/passes/game_01__pass_004.mp4",
+    "sha256": "2586543899fe1dc7753a80c234cad0744a7d8163032657633f63a1c1cc5b6cc3",
+    "legacy_path": "data/plays/game_01/pass_004.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_005",
+    "path": "data/plays/passes/game_01__pass_005.mp4",
+    "sha256": "a650ed27ea1143595339bee63d53373d3b075980965c447d4d4f649c2753d794",
+    "legacy_path": "data/plays/game_01/pass_005.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_006",
+    "path": "data/plays/passes/game_01__pass_006.mp4",
+    "sha256": "537a8aa6d8df290c28b65173ae156773307611e96a8a78d24f5e3b42685c1475",
+    "legacy_path": "data/plays/game_01/pass_006.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_007",
+    "path": "data/plays/passes/game_01__pass_007.mp4",
+    "sha256": "2cfe9f6244faab6ee1821a559f2b1ccffce48e91654c4698cccee02759739725",
+    "legacy_path": "data/plays/game_01/pass_007.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_008",
+    "path": "data/plays/passes/game_01__pass_008.mp4",
+    "sha256": "643f6636b0b3d09b7c63e475a639d4263fa1d0b534d83987a45d6556ba216e61",
+    "legacy_path": "data/plays/game_01/pass_008.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_009",
+    "path": "data/plays/passes/game_01__pass_009.mp4",
+    "sha256": "8fd91fc94ecefad79ad58bf434fe558d61a70be3d68fc9d970b74f9e19abbeb9",
+    "legacy_path": "data/plays/game_01/pass_009.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_010",
+    "path": "data/plays/passes/game_01__pass_010.mp4",
+    "sha256": "4bac9aa7db66625b901581433a417a50b00dc307f7d95f6ac26de85258a9b4f5",
+    "legacy_path": "data/plays/game_01/pass_010.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_011",
+    "path": "data/plays/passes/game_01__pass_011.mp4",
+    "sha256": "c97665e1edd9711b6aabff7fe92c3efa1de9b84e5543138fbd64c9e96e9fb66a",
+    "legacy_path": "data/plays/game_01/pass_011.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_012",
+    "path": "data/plays/passes/game_01__pass_012.mp4",
+    "sha256": "59f9a267552e0fc197077a2c883dbd6e66dc94f406717fec8768c6dcf01c5b24",
+    "legacy_path": "data/plays/game_01/pass_012.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_013",
+    "path": "data/plays/passes/game_01__pass_013.mp4",
+    "sha256": "2e7717bbddccab32c75b44de9d736515a3e407c905c8d4b52bce980db4a87189",
+    "legacy_path": "data/plays/game_01/pass_013.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_014",
+    "path": "data/plays/passes/game_01__pass_014.mp4",
+    "sha256": "81f92aa40a730862da1aa34c09982431a7bbf3172f3218660cb7d70347ed7792",
+    "legacy_path": "data/plays/game_01/pass_014.mp4"
+  },
+  {
+    "game_id": "game_01",
+    "play_id": "pass_015",
+    "path": "data/plays/passes/game_01__pass_015.mp4",
+    "sha256": "9ec92efd479a05649c5692f4c2432943b3d86b9f85a317d6134b4b0fd3c0a18e",
+    "legacy_path": "data/plays/game_01/pass_015.mp4"
+  }
+]

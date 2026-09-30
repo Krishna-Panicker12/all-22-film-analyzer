@@ -1,0 +1,56 @@
+[
+  {
+    "path": "data/training/coverage/references/pass_002_correction.png",
+    "coverage": "cover_3_zone",
+    "kind": "user_corrected_film",
+    "sha256": "ffe35e02b87ab958a5552a5be307b44d201d1632ccac7fed83267e1f25c44cfe",
+    "source": "C:\\Users\\krish\\OneDrive\\Pictures\\Screenshots 1\\Screenshot 2026-09-29 210820.png",
+    "pixel_training_eligible": false,
+    "note": "Annotated reference; do not treat diagram pixels as clean film training data."
+  },
+  {
+    "path": "data/training/coverage/references/cover_3_diagram.png",
+    "coverage": "cover_3_zone",
+    "kind": "instructional_reference",
+    "sha256": "58fbf04514169a49fe473c6a7a3de0b08129344a56a78e5bd4e734ff6fd4cb47",
+    "source": "C:\\Users\\krish\\AppData\\Local\\Temp\\codex-clipboard-3da07c70-ef94-4434-a4fc-2dd8ffe89b35.png",
+    "pixel_training_eligible": false,
+    "note": "Annotated reference; do not treat diagram pixels as clean film training data."
+  },
+  {
+    "path": "data/training/coverage/references/cover_3_sky.png",
+    "coverage": "cover_3_zone",
+    "kind": "instructional_reference",
+    "sha256": "5139df213762c29be90343daa89269344141763be74a812f62a02f274543e5eb",
+    "source": "C:\\Users\\krish\\AppData\\Local\\Temp\\codex-clipboard-c382b314-9b9e-450a-ba01-e490624766ef.png",
+    "pixel_training_eligible": false,
+    "note": "Annotated reference; do not treat diagram pixels as clean film training data."
+  },
+  {
+    "path": "data/training/coverage/references/cover_4_diagram.png",
+    "coverage": "cover_4_zone",
+    "kind": "instructional_reference",
+    "sha256": "da9782217dfdd67eaf5c738d42b5e9d46795fad8ba921f90eb4b50653e68ff99",
+    "source": "C:\\Users\\krish\\AppData\\Local\\Temp\\codex-clipboard-cf5126ac-0b4d-465a-8afb-001c0a47b269.png",
+    "pixel_training_eligible": false,
+    "note": "Annotated reference; do not treat diagram pixels as clean film training data."
+  },
+  {
+    "path": "data/training/coverage/references/cover_3_pro_i.png",
+    "coverage": "cover_3_zone",
+    "kind": "instructional_reference",
+    "sha256": "6de09299121e002fce6ce913bd2836ab5bb882553e728ce5cadc4d97e86a987a",
+    "source": "C:\\Users\\krish\\OneDrive\\Pictures\\Screenshots 1\\Screenshot 2026-09-29 211807.png",
+    "pixel_training_eligible": false,
+    "note": "Annotated reference; do not treat diagram pixels as clean film training data."
+  },
+  {
+    "path": "data/training/coverage/references/cover_4_cut.png",
+    "coverage": "cover_4_zone",
+    "kind": "instructional_reference",
+    "sha256": "7bada9acf1fc6789490dc20bd80e877799a261965adc560219b4483f4181f0f8",
+    "source": "C:\\Users\\krish\\OneDrive\\Pictures\\Screenshots 1\\Screenshot 2026-09-29 211829.png",
+    "pixel_training_eligible": false,
+    "note": "Annotated reference; do not treat diagram pixels as clean film training data."
+  }
+]

@@ -1,5 +1,43 @@
 # NFL Defensive Shell Analyzer
 
+All 15 pass plays now have provisional snap/field configs in `data/metadata`.
+To review saved analyses at normal speed, with large shell and best-estimate
+labels and a final frame held until Q:
+
+```powershell
+.\.venv\Scripts\python.exe -m tools.review_defense_batch --input outputs/all_plays_review_v1
+```
+
+To run new analysis interactively on every play:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.shells.run_defense --config-dir data/metadata --output-root outputs/live_all_plays --show
+```
+
+Each play ends at approximately 2.3 seconds after the estimated snap. Q advances
+to the next play (or closes the final play); Esc exits the batch; Space pauses
+and resumes during playback. The final frame never auto-closes. Saved visual
+review candidates are explicitly labeled when used as display fallback and
+are never fed into automatic inference. The final frame can use a saved
+whole-play review, including evidence later than the paused frame; it is
+labeled WHOLE-PLAY FILM REVIEW, not presented as a live model prediction.
+Unknown remains visible when the evidence does not support a coverage name.
+
+An experimental role-classifier training run and receiver-following analysis
+are now available. See [training results and usage](docs/role-training-and-following.md).
+The role pilot reached 50% agreement on held-out weak labels and remains
+experimental. New defense runs track offensive release candidates and save
+temporal following evidence alongside staged coverage estimates.
+
+The [player-role review gallery](data/defensive_shells/player_roles/index.html)
+contains 30 pre/post clip screenshots with provisional safety, corner, and
+linebacker points across all 15 plays. Eight exact user reference PNGs are saved
+under `data/defensive_shells/coverages/references/` and linked in
+`data/metadata/coverage_reference_playbook.json`. These are persistent reference
+assets, not newly trained model weights. New defense reports include
+`coverage_stages`: pre-snap family estimates, tracked safety rotation and revised
+families, then corner-motion refinement with alternatives retained.
+
 Computer-vision project focused on **pre-snap defensive shells and initial
 post-snap safety rotation** in All-22 pass-play footage. Shells are not coverage calls.
 
@@ -18,10 +56,16 @@ plays, 3 Cover 2 man candidate plays, and 4 unknown plays. All six requested
 coverage folders exist; unsupported classes remain empty. These dataset labels
 extend the reference collection, not the automatic shell classifier's capabilities.
 
-The current baseline classifies manually prepared defensive coordinates. The
-viewer supplies full-player detection and tracking for review. Automatic clip-to-
-shell analysis is not yet validated or wired together; see the
-[audit and implementation plan](docs/shell-audit-and-plan.md).
+The coordinate baseline remains independently testable. An experimental
+defense-only short-window runner connects filtered detection, tracking, camera
+compensation, pre/post snapshots, high-safety counts, shell candidates, and
+corner-motion comparisons.
+It defaults to helmet + body because that produced more candidate defenders
+than body-only in the configured `pass_001` check. Shell results stay `unknown`
+until all 11 defenders have reliable positions; coverage remains
+unknown unless a majority of at least two tracked corners move within/outside the
+configured 5–7-yard radius. This is the requested provisional motion heuristic,
+not proof of man/zone responsibilities. See the [audit and implementation plan](docs/shell-audit-and-plan.md).
 
 ## Start here
 
@@ -44,6 +88,38 @@ viewer retains its exploratory playback behavior. `tracking_start_seconds` is
 not a snap label. `--pre-seconds` and `--post-seconds` adjust the window;
 `--buffer 30` retains missing tracks for 30 processed frames. Full-player YOLO
 is now the default; helmet mode remains an explicit diagnostic option.
+
+For the defense-only report, use the per-play config. `defense_pass_001.json`
+contains a visually estimated snap frame (uncertainty about three frames), not
+a human-verified snap. It also contains manually estimated camera geometry that
+needs review. Each run requires a new output folder:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.shells.run_defense --config data/metadata/defense_pass_001.json --output outputs/defense_pass001_run002
+```
+
+The result includes original/annotated snapshots, movement CSV/JSON, a short
+tracking video, and separate helmet/body color-filter counts. Pre/post overlays
+show shell candidate, accepted shell, and high-safety count. The post overlay
+draws 6-yard bubbles around corners only when a zone-like majority is measured.
+The current pixels-per-yard values are provisional and must be calibrated from
+visible field markings; incomplete corner tracks produce `unknown`, not bubbles.
+Add `--show` to view detections and tracks while frames are processed. Press
+Space to pause/resume; Q or Esc stops the current play and preserves partial
+video/tracks.
+
+For a batch, place reviewed `defense_<play_id>.json` configs in a directory and
+run:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.shells.run_defense --config-dir data/metadata/defense_configs --output-root outputs/defense_batch_001 --show
+```
+
+Each config stores a pre-snap frame, estimated snap frame, defense color, field
+polygon, and approximate local camera geometry. All 15 clips are configured;
+new snap estimates carry uncertainty of about eight frames and require human
+verification. Batch mode processes all configs in the directory and creates
+one output folder per play, preserving previous runs.
 
 ## Project layout
 

@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "source": "user-provided coverage diagrams on 2026-09-29",
+  "reference_images_saved": true,
+  "image_note": "Exact user-provided PNGs preserved locally; captions are reference evidence, not executable instructions or verified clip labels.",
+  "estimator_policy": "These are candidate-generation rules, not verified play-call labels. Require tracked shell and corner movement evidence; do not infer receiver assignments that are not measured.",
+  "coverages": {
+    "cover_1_man": {
+      "shell_candidates": [
+        "1_high"
+      ],
+      "corner_motion": "man_like",
+      "high_safety_count": 1,
+      "concepts": [
+        "One deep middle/post safety remains over the top.",
+        "Corners travel with slot receivers; plus splits can use inside shade.",
+        "Underneath defenders match X, Y, and Z releases.",
+        "Linebackers track the running back or fullback.",
+        "An underneath-hole defender can rob crossers."
+      ],
+      "unmeasured_assignments": [
+        "receiver matchups",
+        "linebacker-to-back matchup",
+        "underneath hole responsibility"
+      ],
+      "reference_images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200604.png",
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200626.png",
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200644.png"
+      ]
+    },
+    "cover_2_man": {
+      "shell_candidates": [
+        "2_high"
+      ],
+      "corner_motion": "man_like",
+      "concepts": [
+        "Two deep safeties split the deep field into halves.",
+        "Underneath defenders match receivers man-to-man.",
+        "Corners can travel with slot receivers.",
+        "Linebackers can track the running back or fullback."
+      ],
+      "unmeasured_assignments": [
+        "receiver matchups",
+        "linebacker-to-back matchup"
+      ],
+      "reference_images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200747.png",
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200915.png"
+      ],
+      "aliases": [
+        "cover_5",
+        "2_man"
+      ]
+    },
+    "cover_2_invert": {
+      "shell_candidates": [
+        "2_high",
+        "1_high"
+      ],
+      "corner_motion": null,
+      "concepts": [
+        "Cover 2 family with inverted or rotated underneath/deep responsibilities.",
+        "Requires observing the rotation and final safety/underneath distribution."
+      ],
+      "unmeasured_assignments": [
+        "rotation responsibility",
+        "underneath matchups"
+      ],
+      "reference_images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200934.png"
+      ]
+    },
+    "cover_3_buzz": {
+      "shell_candidates": [
+        "1_high"
+      ],
+      "corner_motion": "zone_like",
+      "concepts": [
+        "Three deep thirds with underneath zones; outside corners commonly carry the outside deep thirds.",
+        "A safety rotates down into a hook/buzz underneath area while a deep middle defender remains.",
+        "Matching a vertical stem alone does not distinguish man coverage from match-zone."
+      ],
+      "unmeasured_assignments": [
+        "buzz safety identity",
+        "deep-third distribution",
+        "receiver stems"
+      ],
+      "reference_images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 201017.png"
+      ]
+    },
+    "cover_3_cloud": {
+      "shell_candidates": [
+        "1_high"
+      ],
+      "corner_motion": "zone_like",
+      "concepts": [
+        "Three deep thirds with underneath curl-flat and hook zones.",
+        "A cloud corner squats or sinks to the flat while safety support rotates over the top."
+      ],
+      "unmeasured_assignments": [
+        "cloud corner identity",
+        "deep-third distribution",
+        "receiver stems"
+      ],
+      "reference_images": [
+        "data/defensive_shells/coverages/references/Screenshot 2026-09-29 201046.png"
+      ]
+    },
+    "cover_3_zone": {
+      "shell_candidates": [
+        "1_high"
+      ],
+      "corner_motion": "zone_like",
+      "concepts": [
+        "Three deep responsibilities: two outside thirds and middle third.",
+        "Underneath defenders occupy hook/curl/flat areas; corner depth and underneath spacing distinguish from Cover 1."
+      ],
+      "unmeasured_assignments": [
+        "deep responsibilities",
+        "underneath receiver relationships"
+      ],
+      "reference_images": [
+        "data/training/coverage/references/cover_3_diagram.png",
+        "data/training/coverage/references/cover_3_sky.png",
+        "data/training/coverage/references/cover_3_pro_i.png"
+      ]
+    },
+    "cover_4_zone": {
+      "shell_candidates": [
+        "2_high"
+      ],
+      "corner_motion": "zone_like",
+      "concepts": [
+        "Four deep quarter responsibilities, commonly two corners and two safeties.",
+        "Underneath zone spacing plus depth/distribution distinguish from two-deep man.",
+        "Match/cut variants can attach to receivers; a single close pairing does not establish man."
+      ],
+      "unmeasured_assignments": [
+        "deep responsibilities",
+        "underneath receiver relationships"
+      ],
+      "reference_images": [
+        "data/training/coverage/references/cover_4_diagram.png",
+        "data/training/coverage/references/cover_4_cut.png"
+      ]
+    }
+  },
+  "reference_manifest": [
+    {
+      "path": "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200604.png",
+      "coverage": "cover_1_man",
+      "sha256": "0150a959a7578b2dd95f1e889e777d1772b46dd192bf1b719c850dd5b16ca947"
+    },
+    {
+      "path": "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200626.png",
+      "coverage": "cover_1_man",
+      "sha256": "3b9541565212f9c9c2ae947055e49b1ca937d75fb649299140bb73774715d036"
+    },
+    {
+      "path": "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200644.png",
+      "coverage": "cover_1_man",
+      "sha256": "3eec0400ad2dcaf652a26eba2d4cb2356729ccbb43fc613e2b1214abd127d515"
+    },
+    {
+      "path": "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200747.png",
+      "coverage": "cover_2_man",
+      "sha256": "fbb8d56a5635cf8317f959cab7e578184ad94f5b78a7da546502e6e6334535ce"
+    },
+    {
+      "path": "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200915.png",
+      "coverage": "cover_2_man",
+      "sha256": "b7a6be71524e796bc74c8ba06244732f7d07c24d2a135f9f03b29a2f9822f151"
+    },
+    {
+      "path": "data/defensive_shells/coverages/references/Screenshot 2026-09-29 200934.png",
+      "coverage": "cover_2_invert",
+      "sha256": "0aeb733dd64ad628d2469c3c9d7b97072d2c1c59e76a7df4175be208a9365ef7"
+    },
+    {
+      "path": "data/defensive_shells/coverages/references/Screenshot 2026-09-29 201017.png",
+      "coverage": "cover_3_buzz",
+      "sha256": "0ce99733848560a7dad9f30a0119c7b921be1c857f594954c3e8ebe164b33672"
+    },
+    {
+      "path": "data/defensive_shells/coverages/references/Screenshot 2026-09-29 201046.png",
+      "coverage": "cover_3_cloud",
+      "sha256": "66d64e922ff839ec445b7e934699f4c6f644b3317152e8f6253d5e5a7196945e"
+    }
+  ],
+  "ordered_estimation": [
+    "Identify pre-snap safety candidates and list shell-compatible coverage families.",
+    "Compare the same safety candidates after the snap; preserve missing-track uncertainty and update the family list.",
+    "Compare pre/post corners: receiver following supports man; area responsibility and exchanges support zone. Displacement alone is weak evidence.",
+    "Use linebacker drops and receiver/back assignments as supporting evidence when visible; retain unknown for unmeasured responsibilities."
+  ],
+  "player_role_context": "data/defensive_shells/player_roles/manifest.json",
+  "player_role_annotations": "data/metadata/player_role_annotations.json",
+  "training_status": "Reference context and unverified candidate labels only; no model fine-tuning performed.",
+  "assignment_policy": "Do not promote man from corner distance alone. Require receiver relationships for visible coverage defenders, excluding rushers and deep help; unassigned underneath spacing supports zone but robber/match remain alternatives."
+}
