@@ -18,6 +18,15 @@ def display_estimate(shell=None, coverage=None, review=None, post_snap=False):
     names=coverage.get('candidates',[]) if post_snap else FAMILIES.get(shell_name,[])
     source='tracking candidate' if post_snap else 'shell-compatible possibilities'
     best=coverage.get('coverage','unknown_coverage')
+    # Never display a coverage whose required deep shell contradicts the shell
+    # printed directly above it. This prevents one-high + Cover 0 combinations.
+    required={'cover_0_man':'0_high','cover_1_man':'1_high','cover_1_man_candidate':'1_high',
+              'cover_2_man':'2_high','cover_2_man_candidate':'2_high',
+              'cover_2_zone':'2_high','cover_2_zone_candidate':'2_high',
+              'cover_4_zone':'2_high','cover_4_zone_candidate':'2_high',
+              'cover_3_zone':'1_high','cover_3_zone_candidate':'1_high'}
+    incompatible=required.get(best) not in (None,shell_name)
+    if incompatible: best='unknown_coverage'
     if post_snap and best not in ('unknown_coverage','zone_like','man_like'):
         estimate=pretty(best)
     elif post_snap and review.get('coverage','unknown_coverage')!='unknown_coverage':

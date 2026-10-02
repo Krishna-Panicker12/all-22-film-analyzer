@@ -65,10 +65,10 @@
   "receiver_following_enabled": true,
   "review_context": {
     "pre_shell": "1_high",
-    "coverage": "unknown_coverage",
-    "source": "saved_agent_visual_sequence_review",
-    "human_verified": false,
-    "note": "Display fallback only, never detector input or verified label.",
+    "coverage": "cover_1_man",
+    "source": "user_correction",
+    "human_verified": true,
+    "note": "User correction: extreme-depth post safety makes this one-high; Cover 0 is incompatible. Cover 1 is the reviewed estimate.",
     "coverage_evidence_frames": [
       390,
       420

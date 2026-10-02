@@ -12,6 +12,7 @@ from ultralytics.engine.results import Boxes
 
 from src.shells.baseline import analyze_play, analysis_window, classify_shell
 from src.shells.defense import (DefensiveDetector, classify_corner_movement,
+                                classify_two_high_zone_structure,
                                 coverage_hypotheses, load_coverage_playbook,
                                 load_coverage_reference,
                                 shell_from_snapshot,
@@ -90,6 +91,27 @@ class ShellTests(unittest.TestCase):
         self.assertEqual(result["high_safety_count"],2)
         self.assertEqual(result["high_safety_ids"],[1,2])
 
+    def test_extreme_depth_safety_recovers_one_high(self):
+        geometry=dict(los_center=[0,0],depth_axis=[1,0],lateral_axis=[0,1],
+            thresholds=dict(depth_threshold=10,lateral_limit=10,middle_limit=4,margin=1))
+        raw=([2,-20],[3,-15],[1,-8],[2,-4],[3,4],[2,8],[1,15],[2,20],[3,24],[4,-24],[18,12])
+        rows=[dict(track_id=i,anchor_kind='feet',reference_point=p) for i,p in enumerate(raw,1)]
+        result=shell_from_snapshot(rows,geometry,True,True)
+        self.assertEqual(result['candidate'],'1_high')
+        self.assertEqual(result['high_safety_ids'],[11])
+
+    def test_cover_two_vs_four_uses_corner_depth_and_open_flats(self):
+        geometry=dict(los_center=[0,0],depth_axis=[1,0],lateral_axis=[0,1],pixels_per_yard=dict(depth=1,lateral=1))
+        make=lambda pts:[dict(track_id=i,anchor_kind='feet',reference_point=p) for i,p in enumerate(pts,1)]
+        cover4=classify_two_high_zone_structure(make([(8,-12),(8,12),(12,-5),(12,5)]),geometry)
+        self.assertEqual(cover4['classification'],'cover_4_zone')
+        cover2=classify_two_high_zone_structure(make([(3,-12),(8,12),(12,-5),(12,5),(2,9)]),geometry)
+        self.assertEqual(cover2['classification'],'cover_2_zone')
+
+    def test_incomplete_zero_high_cannot_emit_cover_zero(self):
+        result=coverage_hypotheses('0_high',{'classification':'man_like'},shell_complete=False)
+        self.assertNotIn('cover_0_man',result['candidates'])
+
     def test_corner_majority_classifies_zone_or_man(self):
         geometry = dict(los_center=[0,0],depth_axis=[1,0],lateral_axis=[0,1],
                         thresholds=dict(depth_threshold=20,lateral_limit=15,
@@ -167,7 +189,8 @@ class ShellTests(unittest.TestCase):
         cover3=coverage_hypotheses("1_high",{"classification":"zone_like"},1,
                                    "2_high",playbook=playbook)
         self.assertEqual(cover3["coverage"],"unknown_coverage")
-        self.assertEqual(set(cover3["candidates"]),{"cover_3_buzz","cover_3_cloud"})
+        self.assertEqual(set(cover3["candidates"]),
+                         {"cover_3_zone","cover_3_buzz","cover_3_cloud"})
 
     def test_zone_bubbles_project_to_current_frame(self):
         geometry = dict(los_center=[50,50],depth_axis=[1,0],lateral_axis=[0,1])

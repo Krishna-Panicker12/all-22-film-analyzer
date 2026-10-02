@@ -64,11 +64,11 @@
   "post_seconds": 2.3,
   "receiver_following_enabled": true,
   "review_context": {
-    "pre_shell": "1_high",
-    "coverage": "unknown_coverage",
-    "source": "saved_agent_visual_sequence_review",
-    "human_verified": false,
-    "note": "Display fallback only, never detector input or verified label.",
+    "pre_shell": "2_high",
+    "coverage": "cover_2_zone",
+    "source": "user_correction",
+    "human_verified": true,
+    "note": "User correction: two-deep zone structure with underneath spacing. Favor Cover 2; require deep corners plus open flats before Cover 4.",
     "coverage_evidence_frames": [
       270,
       300

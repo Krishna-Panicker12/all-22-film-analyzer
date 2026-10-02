@@ -54,9 +54,11 @@
         390,
         420
       ],
-      "coverage": "unknown_coverage",
-      "confidence": 0.45,
-      "notes": "Outside defenders carry vertical routes, but underneath spacing and exchanges do not reliably distinguish Cover 1 from Cover 3 or a match variant. Do not infer coverage from the earlier one-high shell."
+      "coverage": "cover_1_man",
+      "confidence": 0.95,
+      "notes": "User correction: extreme-depth post safety makes this one-high; Cover 0 is incompatible. Cover 1 is the reviewed estimate.",
+      "label_source": "user_correction",
+      "human_verified": true
     },
     {
       "play_id": "pass_006",
@@ -104,9 +106,11 @@
         270,
         300
       ],
-      "coverage": "unknown_coverage",
-      "confidence": 0.45,
-      "notes": "Zone-like underneath spacing and multiple deep defenders emerge, but deep-third versus deep-half responsibilities are not clear enough to distinguish Cover 3 zone from Cover 2 zone or a match variant."
+      "coverage": "cover_2_zone",
+      "confidence": 0.95,
+      "notes": "User correction: two-deep zone structure with underneath spacing. Favor Cover 2; require deep corners plus open flats before Cover 4.",
+      "label_source": "user_correction",
+      "human_verified": true
     },
     {
       "play_id": "pass_011",

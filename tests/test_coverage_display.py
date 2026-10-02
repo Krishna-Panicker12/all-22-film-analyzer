@@ -43,11 +43,17 @@ class DisplayTests(unittest.TestCase):
         np.testing.assert_array_equal(result[220:],frame)
 
     def test_all_clips_have_bounded_configs(self):
-        clips=sorted((ROOT/'data/plays/game_01').glob('pass_*.mp4'))
+        clips=sorted((ROOT/'data/plays/passes').glob('game_01__pass_*.mp4'))
         self.assertEqual(len(clips),15)
         for clip in clips:
-            c=read_config(ROOT/f'data/metadata/defense_{clip.stem}.json')
+            play=clip.stem.split('__',1)[1]
+            c=read_config(ROOT/f'data/metadata/defense_{play}.json')
             cap=cv2.VideoCapture(str(clip));fps=cap.get(cv2.CAP_PROP_FPS)
             count=cap.get(cv2.CAP_PROP_FRAME_COUNT);cap.release()
             self.assertLess(c['snap_frame']+round(c['post_seconds']*fps),count)
             self.assertEqual(c['post_seconds'],2.3)
+
+    def test_one_high_never_displays_cover_zero(self):
+        d=display_estimate(dict(candidate='1_high',completeness_confirmed=False),
+                           dict(coverage='cover_0_man'),{},True)
+        self.assertNotIn('COVER 0',d['estimate'])

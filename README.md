@@ -38,6 +38,15 @@ assets, not newly trained model weights. New defense reports include
 `coverage_stages`: pre-snap family estimates, tracked safety rotation and revised
 families, then corner-motion refinement with alternatives retained.
 
+Coverage consistency rules reject Cover 0 unless a complete defensive view has
+no high safety. An isolated defender beyond 1.6 times the normal safety-depth
+threshold can recover a one-high shell when camera pan places him outside the
+ordinary middle gate. For a two-high zone candidate, Cover 2 is preferred unless
+both wide corners reach at least five yards of depth and neither flat has a
+shallow defender; only then does the structural heuristic produce Cover 4.
+User-reviewed corrections mark `pass_005` as Cover 1 Man and `pass_010` as
+Cover 2 Zone.
+
 Computer-vision project focused on **pre-snap defensive shells and initial
 post-snap safety rotation** in All-22 pass-play footage. Shells are not coverage calls.
 

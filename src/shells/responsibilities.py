@@ -2,6 +2,8 @@
 import cv2
 import numpy as np
 
+ZONE_ROLES={'CB','S','FS','SS','DB','NICKEL','LB_or_DB'}
+
 
 def zone_box(point,geometry,width_yards=8):
     scale=geometry['pixels_per_yard']
@@ -16,7 +18,10 @@ def responsibility_overlay(frame,coverage,defenders,receivers,geometry,pairs=(),
     if 'zone' in coverage:
         tint=canvas.copy()
         for d in defenders:
-            if d.get('role')=='DL': continue
+            # Never turn an arbitrary surviving track into a zone defender. The
+            # earlier implementation did this and painted a lineman. A box now
+            # requires a reviewed or model-supplied coverage role.
+            if d.get('role') not in ZONE_ROLES: continue
             polygon=zone_box(d['image_point'],geometry,width_yards)
             cv2.fillConvexPoly(tint,polygon,(110,35,5))
             drawn.append(dict(defender_id=d['track_id'],kind='illustrative_zone',polygon=polygon.tolist()))
@@ -32,6 +37,7 @@ def responsibility_overlay(frame,coverage,defenders,receivers,geometry,pairs=(),
             cv2.line(canvas,a,b,(0,225,255),3,cv2.LINE_AA)
             drawn.append(dict(defender_id=d['track_id'],receiver_id=r['track_id'],kind='following_candidate'))
     for d in defenders:
+        if 'zone' in coverage and d.get('role') not in ZONE_ROLES: continue
         point=tuple(map(round,d['image_point']));cv2.circle(canvas,point,6,(0,220,255),2)
     label=(f'Illustrative zones: {width_yards:g} yards wide, approximate scale' if 'zone' in coverage else
            'Lines = observed following candidates, not confirmed assignments' if drawn else 'No reliable matchup lines available')

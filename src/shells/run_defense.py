@@ -14,7 +14,8 @@ from src.tracking.tracking import PlayerTracker
 from .defense import (DefensiveDetector, reference_points, shell_from_snapshot,
                      compare_snapshots, coverage_hypotheses,
                      classify_corner_movement, zone_bubble_polygons,
-                     load_coverage_reference, load_coverage_playbook)
+                     load_coverage_reference, load_coverage_playbook,
+                     classify_two_high_zone_structure)
 from .following import receiver_following
 from .display import banner, display_estimate, wait_for_manual_exit
 from src.data.catalog import resolve_clip
@@ -194,7 +195,9 @@ def run(config, output, target="hybrid", image_size=1280, tracker_name="botsort.
                     coverage = coverage_hypotheses(
                         shell["candidate"], corner_motion, shell["high_safety_count"],
                         captures["pre_snap"]["shell"]["candidate"], coverage_reference,
-                        coverage_playbook)
+                        coverage_playbook,
+                        classify_two_high_zone_structure(rows,geometry),
+                        shell["completeness_confirmed"])
                     caption += (f' | POST shell candidate {shell["candidate"]}; '
                                 f'confirmed {shell["shell"]}; '
                                 f'high safeties {shell["high_safety_count"]}; '
@@ -218,7 +221,9 @@ def run(config, output, target="hybrid", image_size=1280, tracker_name="botsort.
                         config.get('corner_bubble_yards',6),config.get('corner_ids'))
                     live_coverage = coverage_hypotheses(current_shell['candidate'],live_motion,
                         current_shell['high_safety_count'],captures['pre_snap']['shell']['candidate'],
-                        coverage_reference,coverage_playbook)
+                        coverage_reference,coverage_playbook,
+                        classify_two_high_zone_structure(rows,config['geometry_at_pre']),
+                        current_shell['completeness_confirmed'])
             # Film review is an explicitly labeled fallback, never inference input.
             # Don't reveal a saved post-snap review before its evidence frames.
             review = dict(config.get('review_context',{}))

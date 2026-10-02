@@ -13,5 +13,21 @@
       {"track_id":"review_under_bottom","role":"LB_or_DB","image_point":[413,468]}
     ],
     "notes":"Six visible coverage-player candidates; remaining defender responsibilities unresolved, not fabricated. Zone boxes are illustrations, not measured assignments."
+  },
+  "game_01__pass_010": {
+    "frame_index": 287,
+    "source": "agent_visual_review_of_exact_freeze_frame; coverage corrected by user",
+    "human_verified_positions": false,
+    "geometry": {"depth_axis":[1,0],"lateral_axis":[-0.25,1],"pixels_per_yard":{"depth":25,"lateral":12.5}},
+    "defenders": [
+      {"track_id":"review_CB_top","role":"CB","image_point":[724,144]},
+      {"track_id":"review_S_left","role":"S","image_point":[487,306]},
+      {"track_id":"review_S_right","role":"S","image_point":[1068,317]},
+      {"track_id":"review_NICKEL_top","role":"NICKEL","image_point":[703,405]},
+      {"track_id":"review_NICKEL_middle","role":"NICKEL","image_point":[670,493]},
+      {"track_id":"review_CB_bottom","role":"CB","image_point":[539,589]},
+      {"track_id":"review_DB_bottom_right","role":"DB","image_point":[901,573]}
+    ],
+    "notes":"Seven visible secondary/coverage-defender candidates. Red defensive linemen near the pocket are explicitly excluded. Zone boxes are illustrative and positions remain provisional."
   }
 }

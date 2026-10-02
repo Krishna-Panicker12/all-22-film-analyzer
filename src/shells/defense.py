@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 
 from src.tracking.teams import helmet_color, jersey_color, patch_color
-from src.shells.baseline import classify_shell
+from src.shells.baseline import classify_shell, ShellResult
 
 
 def detection_color(frame, box, target, others=()):
@@ -96,11 +96,58 @@ def shell_from_snapshot(rows, geometry, visible, registration_ok):
     deep_ids = [point["track_id"] for point in points
                 if point["depth"] > geometry["thresholds"]["depth_threshold"]
                 and abs(point["lateral"]) < geometry["thresholds"]["lateral_limit"]]
+    # A very deep post safety can drift outside the ordinary middle gate as the
+    # camera pans. Recover only an extreme, isolated defender; ordinary vertical
+    # corners do not satisfy both the depth multiplier and expanded middle gate.
+    extreme_ids = [point["track_id"] for point in points
+                   if point["depth"] > 1.6*geometry["thresholds"]["depth_threshold"]
+                   and abs(point["lateral"]) < 1.5*geometry["thresholds"]["lateral_limit"]]
+    if candidate.shell == "0_high" and len(extreme_ids) == 1:
+        deep_ids = extreme_ids
+        candidate = ShellResult("1_high",1,.55,
+            "One extreme-depth post defender recovered outside the ordinary middle gate")
+        if complete:
+            accepted = candidate
     return dict(shell=accepted.shell, candidate=candidate.shell,
                 confidence=accepted.confidence, reason=accepted.reason,
                 candidate_reason=candidate.reason, measured_defenders=len(points),
                 completeness_confirmed=complete, high_safety_count=len(deep_ids),
                 high_safety_ids=deep_ids, geometry_points=points)
+
+
+def classify_two_high_zone_structure(rows, geometry):
+    """Distinguish Cover 2/4 cues after a two-high zone result.
+
+    Cover 4 requires both wide corner candidates to have at least five yards of
+    depth and no shallow outside defender occupying either flat. Otherwise the
+    safer two-high zone estimate is Cover 2. This is structural evidence, not a
+    verified responsibility assignment.
+    """
+    points=geometry_points_from_rows(rows,geometry)
+    scale=geometry["pixels_per_yard"]
+    converted=[dict(track_id=i,depth=p["depth"]/scale["depth"],
+                    lateral=p["lateral"]/scale["lateral"]) for i,p in points.items()
+               if p["anchor_kind"]=="feet"]
+    if len(converted)<4:
+        return dict(classification="unknown",reason="Too few comparable coverage defenders")
+    wide=[p for p in converted if abs(p["lateral"])>=5]
+    corners=[]
+    for side in (-1,1):
+        side_rows=[p for p in wide if p["lateral"]*side>0]
+        if side_rows: corners.append(max(side_rows,key=lambda p:abs(p["lateral"])))
+    if len(corners)<2:
+        return dict(classification="cover_2_zone",corner_depths=[],open_flat_sides=[],
+                    reason="Two-high zone without two deep wide corner candidates")
+    corner_depths=[p["depth"] for p in corners]
+    open=[]
+    for side in (-1,1):
+        flat=[p for p in converted if p["lateral"]*side>=5 and p["depth"]<5]
+        if not flat: open.append(side)
+    cover4=all(d>=5 for d in corner_depths) and len(open)==2
+    return dict(classification="cover_4_zone" if cover4 else "cover_2_zone",
+                corner_depths=corner_depths,open_flat_sides=open,
+                reason=("Both corners have quarter depth and both flats are open" if cover4 else
+                        "A corner is shallow or a defender occupies a flat; favor Cover 2"))
 
 
 def geometry_points_from_rows(rows, geometry):
@@ -261,11 +308,20 @@ def load_coverage_playbook(path):
 
 
 def coverage_hypotheses(post_shell, corner_motion=None, high_safety_count=None,
-                        pre_shell=None, reference=None, playbook=None):
+                        pre_shell=None, reference=None, playbook=None, zone_structure=None,
+                        shell_complete=True):
     candidates = {"0_high": ["cover_0_man"],
                   "1_high": ["cover_1_man", "cover_3_zone"],
                   "2_high": ["cover_2_man", "cover_2_zone", "cover_4_zone"]}
     classification = (corner_motion or {}).get("classification", "unknown")
+    if post_shell == "0_high" and shell_complete is not True:
+        post_shell = "unknown"
+    if post_shell == "2_high" and classification == "zone_like" and zone_structure:
+        name=zone_structure.get("classification")
+        if name in ("cover_2_zone","cover_4_zone"):
+            return dict(coverage=f"{name}_candidate",confidence=.55,candidates=[name],
+                        status="provisional_structure_match",reason=zone_structure["reason"],
+                        measured_signals=["two_high",classification,name])
     reference_candidates = []
     if playbook is not None:
         for name, rule in playbook["coverages"].items():

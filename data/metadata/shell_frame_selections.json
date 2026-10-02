@@ -6,20 +6,114 @@
   "status": "preliminary_training_candidates",
   "notes": "Reviewed 1-6 second timeline sheets and full-resolution selected frames. One original pre-snap frame per pass play. No post-snap or coverage labels inferred. Scores are subjective, not calibrated probabilities.",
   "frames": [
-    {"play_id":"pass_001","frame_index":150,"shell":"2_high","confidence":0.82,"notes":"KC red defense: two staggered deep candidates split across the formation; far-side candidate is shallower than near-side candidate. Review staggered depth."},
-    {"play_id":"pass_002","frame_index":150,"shell":"1_high","confidence":0.84,"notes":"KC red defense: one clearly deepest middle/post defender near the 15; underneath and near-side defenders are substantially shallower."},
-    {"play_id":"pass_003","frame_index":150,"shell":"1_high","confidence":0.93,"notes":"NE white defense: one isolated deep middle defender near midfield; remaining defenders aligned close to the line and receivers."},
-    {"play_id":"pass_004","frame_index":120,"shell":"2_high","confidence":0.90,"notes":"KC red defense: two deep defenders around the 44 split above and below the hashes; distinguish the wide top corner from the safety pair."},
-    {"play_id":"pass_005","frame_index":150,"shell":"1_high","confidence":0.94,"notes":"KC red defense: one isolated deep post defender around the 15-17; other defensive backs are close to receivers or the box."},
-    {"play_id":"pass_006","frame_index":150,"shell":"unknown","confidence":0.40,"notes":"NE white defense: compressed shallow secondary around the 40 with stacked far-side defenders; unclear whether this is one-high or a shallow split structure. Hold out of supervised training pending review."},
-    {"play_id":"pass_007","frame_index":150,"shell":"1_high","confidence":0.85,"notes":"NE white defense: one central defender near the 3-5 stands behind the underneath defenders; red-zone depth is compressed."},
-    {"play_id":"pass_008","frame_index":150,"shell":"1_high","confidence":0.95,"notes":"NE white defense: one isolated post defender near the 35; all other defenders remain much closer to the line or receivers."},
-    {"play_id":"pass_009","frame_index":150,"shell":"0_high","confidence":0.88,"notes":"NE white goal-line defense: defenders are crowded near the line or matched to receivers; no clear deep safety. Goal-line example, not a Cover 0 claim."},
-    {"play_id":"pass_010","frame_index":150,"shell":"1_high","confidence":0.92,"notes":"KC red defense: one isolated central deep safety near the 47; near-side underneath defender is much shallower."},
-    {"play_id":"pass_011","frame_index":150,"shell":"unknown","confidence":0.42,"notes":"NE white defense: shallow asymmetric safety candidates around the 17-19, with far-side player close to the receiver alignment; cannot reliably distinguish one-high from shallow two-high. Hold out pending review."},
-    {"play_id":"pass_012","frame_index":150,"shell":"1_high","confidence":0.94,"notes":"NE white defense: one isolated deep middle defender near the 25; remaining secondary is clustered near the 35-40."},
-    {"play_id":"pass_013","frame_index":150,"shell":"1_high","confidence":0.94,"notes":"KC red defense: one isolated deep safety around the 15; remaining defensive backs are close to the line and receivers."},
-    {"play_id":"pass_014","frame_index":150,"shell":"1_high","confidence":0.94,"notes":"NE white defense: one isolated middle/post defender near the 33; underneath defender number 31 is much closer to the line."},
-    {"play_id":"pass_015","frame_index":150,"shell":"2_high","confidence":0.82,"notes":"KC red defense: staggered split deep pair, far side around the 43-44 and near side around midfield; an additional underneath defender is shallower. Review staggered depth."}
+    {
+      "play_id": "pass_001",
+      "frame_index": 150,
+      "shell": "2_high",
+      "confidence": 0.82,
+      "notes": "KC red defense: two staggered deep candidates split across the formation; far-side candidate is shallower than near-side candidate. Review staggered depth."
+    },
+    {
+      "play_id": "pass_002",
+      "frame_index": 150,
+      "shell": "1_high",
+      "confidence": 0.84,
+      "notes": "KC red defense: one clearly deepest middle/post defender near the 15; underneath and near-side defenders are substantially shallower."
+    },
+    {
+      "play_id": "pass_003",
+      "frame_index": 150,
+      "shell": "1_high",
+      "confidence": 0.93,
+      "notes": "NE white defense: one isolated deep middle defender near midfield; remaining defenders aligned close to the line and receivers."
+    },
+    {
+      "play_id": "pass_004",
+      "frame_index": 120,
+      "shell": "2_high",
+      "confidence": 0.9,
+      "notes": "KC red defense: two deep defenders around the 44 split above and below the hashes; distinguish the wide top corner from the safety pair."
+    },
+    {
+      "play_id": "pass_005",
+      "frame_index": 150,
+      "shell": "1_high",
+      "confidence": 0.95,
+      "notes": "User correction: extreme-depth post safety makes this one-high; Cover 0 is incompatible. Cover 1 is the reviewed estimate.",
+      "label_source": "user_correction",
+      "human_verified": true
+    },
+    {
+      "play_id": "pass_006",
+      "frame_index": 150,
+      "shell": "unknown",
+      "confidence": 0.4,
+      "notes": "NE white defense: compressed shallow secondary around the 40 with stacked far-side defenders; unclear whether this is one-high or a shallow split structure. Hold out of supervised training pending review."
+    },
+    {
+      "play_id": "pass_007",
+      "frame_index": 150,
+      "shell": "1_high",
+      "confidence": 0.85,
+      "notes": "NE white defense: one central defender near the 3-5 stands behind the underneath defenders; red-zone depth is compressed."
+    },
+    {
+      "play_id": "pass_008",
+      "frame_index": 150,
+      "shell": "1_high",
+      "confidence": 0.95,
+      "notes": "NE white defense: one isolated post defender near the 35; all other defenders remain much closer to the line or receivers."
+    },
+    {
+      "play_id": "pass_009",
+      "frame_index": 150,
+      "shell": "0_high",
+      "confidence": 0.88,
+      "notes": "NE white goal-line defense: defenders are crowded near the line or matched to receivers; no clear deep safety. Goal-line example, not a Cover 0 claim."
+    },
+    {
+      "play_id": "pass_010",
+      "frame_index": 150,
+      "shell": "2_high",
+      "confidence": 0.95,
+      "notes": "User correction: two-deep zone structure with underneath spacing. Favor Cover 2; require deep corners plus open flats before Cover 4.",
+      "label_source": "user_correction",
+      "human_verified": true
+    },
+    {
+      "play_id": "pass_011",
+      "frame_index": 150,
+      "shell": "unknown",
+      "confidence": 0.42,
+      "notes": "NE white defense: shallow asymmetric safety candidates around the 17-19, with far-side player close to the receiver alignment; cannot reliably distinguish one-high from shallow two-high. Hold out pending review."
+    },
+    {
+      "play_id": "pass_012",
+      "frame_index": 150,
+      "shell": "1_high",
+      "confidence": 0.94,
+      "notes": "NE white defense: one isolated deep middle defender near the 25; remaining secondary is clustered near the 35-40."
+    },
+    {
+      "play_id": "pass_013",
+      "frame_index": 150,
+      "shell": "1_high",
+      "confidence": 0.94,
+      "notes": "KC red defense: one isolated deep safety around the 15; remaining defensive backs are close to the line and receivers."
+    },
+    {
+      "play_id": "pass_014",
+      "frame_index": 150,
+      "shell": "1_high",
+      "confidence": 0.94,
+      "notes": "NE white defense: one isolated middle/post defender near the 33; underneath defender number 31 is much closer to the line."
+    },
+    {
+      "play_id": "pass_015",
+      "frame_index": 150,
+      "shell": "2_high",
+      "confidence": 0.82,
+      "notes": "KC red defense: staggered split deep pair, far side around the 43-44 and near side around midfield; an additional underneath defender is shallower. Review staggered depth."
+    }
   ]
 }
