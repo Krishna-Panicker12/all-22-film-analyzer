@@ -153,6 +153,24 @@ Pass `--help` for options. Older commands in historical notes predate this move.
 
 Run checks with `python -m unittest discover -s tests -v`.
 
+## Full-play review controls
+
+Run `.\.venv\Scripts\python.exe -m tools.review_full_plays --input outputs/all_plays_review_v1`.
+Hold the on-screen **HOLD: 2x speed** button to accelerate playback; release it
+to return to normal speed. Click **Skip to snap** or press **S** before the snap.
+Space pauses, Q advances, and Escape exits. Playback finishes the clip before
+holding the snap+2.30-second coverage frame.
+
+The viewer refreshes defensive detections on that frame with the local
+`models/yolo11s.pt` model. Safety boxes follow the deepest eligible defensive
+tier (within approximately three yards of its deepest player), rather than every
+defender beyond the minimum depth. Turf and uniform-color filters reject likely
+sideline personnel and opponents. Boxes remain 15 yards wide at approximate
+scale. Ball distance uses `ball_reference_point` when supplied in the geometry;
+otherwise the LOS center is the snap-ball proxy, not a live ball detection.
+Fresh positions require comparable saved reference anchors; missed detections,
+approximate registration, and color ambiguity can still leave safeties unresolved.
+
 ## Baseline contract
 
 `python -m src.shells INPUT.json --output outputs/shell.json` writes a new result

@@ -29,7 +29,8 @@ def display_estimate(shell=None, coverage=None, review=None, post_snap=False):
     if incompatible: best='unknown_coverage'
     if post_snap and best not in ('unknown_coverage','zone_like','man_like'):
         estimate=pretty(best)
-    elif post_snap and review.get('coverage','unknown_coverage')!='unknown_coverage':
+    elif (post_snap and review.get('coverage','unknown_coverage')!='unknown_coverage'
+          and required.get(review.get('coverage')) in (None,shell_name)):
         estimate=pretty(review['coverage']); source='WHOLE-PLAY FILM REVIEW candidate; automatic estimate unresolved'
     elif post_snap and best in ('man_like','zone_like'):
         estimate=pretty(best)+'; COVERAGE FAMILY UNKNOWN'

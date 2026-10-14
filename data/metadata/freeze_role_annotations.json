@@ -1,6 +1,7 @@
 {
   "game_01__pass_002": {
     "frame_index": 377,
+    "high_safety_ids": ["review_S_middle"],
     "source": "agent_visual_review_of_exact_freeze_frame; coverage corrected by user",
     "human_verified_positions": false,
     "geometry": {"depth_axis":[-1,0],"lateral_axis":[-0.55,1],"pixels_per_yard":{"depth":26,"lateral":12}},
@@ -16,6 +17,7 @@
   },
   "game_01__pass_010": {
     "frame_index": 287,
+    "high_safety_ids": ["review_S_left", "review_S_right"],
     "source": "agent_visual_review_of_exact_freeze_frame; coverage corrected by user",
     "human_verified_positions": false,
     "geometry": {"depth_axis":[1,0],"lateral_axis":[-0.25,1],"pixels_per_yard":{"depth":25,"lateral":12.5}},

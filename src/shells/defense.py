@@ -78,13 +78,14 @@ def reference_points(points, transform):
 
 
 def shell_from_snapshot(rows, geometry, visible, registration_ok):
+    from .deep_safeties import deepest_safety_ids
     basis = np.asarray([geometry["depth_axis"], geometry["lateral_axis"]], float).T
     if abs(np.linalg.det(basis)) < .01:
         raise ValueError("Depth and lateral axes must be independent")
     origin = np.asarray(geometry["los_center"], float)
     points = []
     for row in rows:
-        if row["anchor_kind"] == "feet" and row["reference_point"] is not None:
+        if row.get("anchor_kind") == "feet" and row.get("reference_point") is not None:
             depth, lateral = np.linalg.solve(basis, np.asarray(row["reference_point"])-origin)
             points.append(dict(depth=float(depth), lateral=float(lateral), track_id=row["track_id"]))
     # A candidate can be useful when some box/line defenders were missed, but
@@ -93,9 +94,11 @@ def shell_from_snapshot(rows, geometry, visible, registration_ok):
                                **geometry["thresholds"])
     complete = visible and registration_ok and len(points) == 11
     accepted = candidate if complete else classify_shell(points, complete=False)
-    deep_ids = [point["track_id"] for point in points
-                if point["depth"] > geometry["thresholds"]["depth_threshold"]
-                and abs(point["lateral"]) < geometry["thresholds"]["lateral_limit"]]
+    deep_ids = deepest_safety_ids(points,geometry) if registration_ok else []
+    selected=[p for p in points if p['track_id'] in deep_ids]
+    if selected:
+        candidate=classify_shell(selected,complete=visible and registration_ok,**geometry['thresholds'])
+        if complete: accepted=candidate
     # A very deep post safety can drift outside the ordinary middle gate as the
     # camera pans. Recover only an extreme, isolated defender; ordinary vertical
     # corners do not satisfy both the depth multiplier and expanded middle gate.
