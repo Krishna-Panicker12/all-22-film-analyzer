@@ -1,188 +1,89 @@
-# NFL Defensive Shell Analyzer
+# NFL Defensive Coverage Analyzer
 
-All 15 pass plays now have provisional snap/field configs in `data/metadata`.
-To review saved analyses at normal speed, with large shell and best-estimate
-labels and a final frame held until Q:
+This project reviews All-22 pass-play footage to surface defensive indicators:
+pre-snap shell, deep-safety candidates, safety rotation, corner movement, and
+provisional man/zone coverage estimates. It is designed to support film study,
+not replace a coach's coverage call.
+
+The active dataset contains 15 New England–Kansas City pass clips. Defensive
+players are separated with team-color evidence, tracked through the play, and
+shown in an interactive review viewer. The viewer refreshes player detections on
+the final frame, highlights the deepest safety tier with approximate 15-yard
+boxes, and retains other zone-defender boxes or man-following lines when the
+underlying evidence supports them.
+
+## Review saved plays
 
 ```powershell
-.\.venv\Scripts\python.exe -m tools.review_defense_batch --input outputs/all_plays_review_v1
+.\.venv\Scripts\python.exe -m tools.review_full_plays --input outputs/all_plays_review_v1
 ```
 
-To run new analysis interactively on every play:
+The viewer plays each source clip to its end and then holds the snap +2.30-second
+coverage frame. Hold **HOLD: 2x speed** to accelerate playback, click **Skip to
+snap** or press **S** to jump to the snap, use Space to pause, Q for the next
+play, and Escape to exit.
+
+The large labels show the estimated shell and best coverage estimate. A displayed
+film-review candidate is explicitly labeled as such; it is not presented as a
+verified model prediction. Safety and coverage boxes are approximate visual aids,
+not measured assignments.
+
+## Run a new analysis
+
+Install dependencies and run an individual configured play:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m src.shells.run_defense --config data/metadata/defense_pass_001.json --output outputs/defense_pass001_run002 --show
+```
+
+Run all configured plays into a new output folder:
 
 ```powershell
 .\.venv\Scripts\python.exe -m src.shells.run_defense --config-dir data/metadata --output-root outputs/live_all_plays --show
 ```
 
-Each play ends at approximately 2.3 seconds after the estimated snap. Q advances
-to the next play (or closes the final play); Esc exits the batch; Space pauses
-and resumes during playback. The final frame never auto-closes. Saved visual
-review candidates are explicitly labeled when used as display fallback and
-are never fed into automatic inference. The final frame can use a saved
-whole-play review, including evidence later than the paused frame; it is
-labeled WHOLE-PLAY FILM REVIEW, not presented as a live model prediction.
-Unknown remains visible when the evidence does not support a coverage name.
+The geometry in each `defense_<play_id>.json` is a reviewed local image basis,
+not a calibrated field homography. The system keeps uncertain observations as
+`unknown` rather than forcing a coverage label. Cover 0 requires a complete view
+with no high safety; Cover 2 versus Cover 4 uses both deep-corner depth and flat
+occupancy cues.
 
-An experimental role-classifier training run and receiver-following analysis
-are now available. See [training results and usage](docs/role-training-and-following.md).
-The role pilot reached 50% agreement on held-out weak labels and remains
-experimental. New defense runs track offensive release candidates and save
-temporal following evidence alongside staged coverage estimates.
-
-The [player-role review gallery](data/defensive_shells/player_roles/index.html)
-contains 30 pre/post clip screenshots with provisional safety, corner, and
-linebacker points across all 15 plays. Eight exact user reference PNGs are saved
-under `data/defensive_shells/coverages/references/` and linked in
-`data/metadata/coverage_reference_playbook.json`. These are persistent reference
-assets, not newly trained model weights. New defense reports include
-`coverage_stages`: pre-snap family estimates, tracked safety rotation and revised
-families, then corner-motion refinement with alternatives retained.
-
-Coverage consistency rules reject Cover 0 unless a complete defensive view has
-no high safety. An isolated defender beyond 1.6 times the normal safety-depth
-threshold can recover a one-high shell when camera pan places him outside the
-ordinary middle gate. For a two-high zone candidate, Cover 2 is preferred unless
-both wide corners reach at least five yards of depth and neither flat has a
-shallow defender; only then does the structural heuristic produce Cover 4.
-User-reviewed corrections mark `pass_005` as Cover 1 Man and `pass_010` as
-Cover 2 Zone.
-
-Computer-vision project focused on **pre-snap defensive shells and initial
-post-snap safety rotation** in All-22 pass-play footage. Shells are not coverage calls.
-
-The active dataset contains 15 pass clips. Run clips were removed at the user's
-request; the clip extractor now skips non-pass metadata rows. Original game
-metadata and raw footage remain available as source records.
-
-The [snapshot review index](data/defensive_shells/index.html) contains one selected
-pre-snap image per pass play: 9 one-high, 3 two-high, 1 zero-high, and 2 unknown.
-These are preliminary training candidates from visual agent review. Verify the
-labels before supervised training; unknown frames are held out.
-
-The [post-snap coverage gallery](data/defensive_shells/coverages/index.html) adds
-30 original snapshots with movement-sequence evidence: 8 Cover 1 man candidate
-plays, 3 Cover 2 man candidate plays, and 4 unknown plays. All six requested
-coverage folders exist; unsupported classes remain empty. These dataset labels
-extend the reference collection, not the automatic shell classifier's capabilities.
-
-The coordinate baseline remains independently testable. An experimental
-defense-only short-window runner connects filtered detection, tracking, camera
-compensation, pre/post snapshots, high-safety counts, shell candidates, and
-corner-motion comparisons.
-It defaults to helmet + body because that produced more candidate defenders
-than body-only in the configured `pass_001` check. Shell results stay `unknown`
-until all 11 defenders have reliable positions; coverage remains
-unknown unless a majority of at least two tracked corners move within/outside the
-configured 5–7-yard radius. This is the requested provisional motion heuristic,
-not proof of man/zone responsibilities. See the [audit and implementation plan](docs/shell-audit-and-plan.md).
-
-## Start here
+## Shell baseline example
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m src.shells docs/shell-observations.example.json
-.\.venv\Scripts\python.exe main.py data/plays/game_01/pass_001.mp4 --pause
+.\.venv\Scripts\python.exe -m src.shells data/examples/shell-observations.example.json --output outputs/shell.json
 ```
 
-After manually confirming a snap timestamp, use `--snap SECONDS` to limit the
-viewer to one second before and 2.5 seconds after the snap. For example, **if**
-the snap is at 5 seconds:
+The synthetic example demonstrates the geometry-only shell baseline. Input
+coordinates use lateral distance from field center and depth from the line of
+scrimmage, with positive depth toward the defensive backfield.
 
-```powershell
-.\.venv\Scripts\python.exe main.py data/plays/game_01/pass_001.mp4 --snap 5 --headless --save-video outputs/shell-window.mp4 --save-csv outputs/shell-tracks.csv
-```
+## Reference data and training context
 
-That timestamp is illustrative, not a label for this play. Without `--snap`, the
-viewer retains its exploratory playback behavior. `tracking_start_seconds` is
-not a snap label. `--pre-seconds` and `--post-seconds` adjust the window;
-`--buffer 30` retains missing tracks for 30 processed frames. Full-player YOLO
-is now the default; helmet mode remains an explicit diagnostic option.
+The [shell gallery](data/defensive_shells/index.html), [coverage gallery](data/defensive_shells/coverages/index.html), and [player-role gallery](data/defensive_shells/player_roles/index.html) preserve the visual reference set. The machine-readable coverage cues are in [coverage_reference_playbook.json](data/metadata/coverage_reference_playbook.json).
 
-For the defense-only report, use the per-play config. `defense_pass_001.json`
-contains a visually estimated snap frame (uncertainty about three frames), not
-a human-verified snap. It also contains manually estimated camera geometry that
-needs review. Each run requires a new output folder:
-
-```powershell
-.\.venv\Scripts\python.exe -m src.shells.run_defense --config data/metadata/defense_pass_001.json --output outputs/defense_pass001_run002
-```
-
-The result includes original/annotated snapshots, movement CSV/JSON, a short
-tracking video, and separate helmet/body color-filter counts. Pre/post overlays
-show shell candidate, accepted shell, and high-safety count. The post overlay
-draws 6-yard bubbles around corners only when a zone-like majority is measured.
-The current pixels-per-yard values are provisional and must be calibrated from
-visible field markings; incomplete corner tracks produce `unknown`, not bubbles.
-Add `--show` to view detections and tracks while frames are processed. Press
-Space to pause/resume; Q or Esc stops the current play and preserves partial
-video/tracks.
-
-For a batch, place reviewed `defense_<play_id>.json` configs in a directory and
-run:
-
-```powershell
-.\.venv\Scripts\python.exe -m src.shells.run_defense --config-dir data/metadata/defense_configs --output-root outputs/defense_batch_001 --show
-```
-
-Each config stores a pre-snap frame, estimated snap frame, defense color, field
-polygon, and approximate local camera geometry. All 15 clips are configured;
-new snap estimates carry uncertainty of about eight frames and require human
-verification. Batch mode processes all configs in the directory and creates
-one output folder per play, preserving previous runs.
+These assets are training and review context, not verified ground truth or
+fine-tuned model weights. The experimental role pilot and receiver-following
+analysis remain optional; their outputs must be validated against independently
+labeled games before accuracy claims are made.
 
 ## Project layout
 
 | Location | Purpose |
 |---|---|
-| `main.py` | Detection/tracking review and short-window video export |
-| `src/shells/` | Small geometry baseline, rotation taxonomy, window calculation |
-| `src/detection/`, `src/tracking/`, `src/viewer.py` | Existing detection and review components |
-| `data/plays/`, `data/raw/` | Original footage; preserved |
-| `data/defensive_shells/` | [Reference images and rotation clips](data/defensive_shells/README.md) |
-| `data/metadata/` | Original game metadata, shell labels, and review queue |
-| `tools/` | Optional labeling, detector training, evaluation, benchmarks |
-| `scripts/` | Historical one-off diagnostic scripts |
-| `docs/legacy/` | Historical experiments and detailed viewer controls |
-| `outputs/` | Generated review artifacts; ignored by Git |
-| `tests/` | Geometry, window, detector, and tracking regression tests |
+| `src/` | Detection, tracking, shell, coverage, and viewer logic |
+| `tools/` | Review, training, evaluation, and dataset utilities |
+| `data/plays/` | Input play clips |
+| `data/metadata/` | Per-play geometry, labels, and review context |
+| `data/defensive_shells/` | Persistent image references and galleries |
+| `data/examples/` | Runnable synthetic examples |
+| `models/` | Local detector weights |
+| `outputs/` | Generated reports and review artifacts |
+| `tests/` | Regression tests |
 
-Utility commands now use module syntax: `python -m tools.prepare_dataset`,
-`python -m tools.label_helmets`, `python -m tools.train_detector`,
-`python -m tools.evaluate_detector`, or `python -m tools.benchmark`.
-Pass `--help` for options. Older commands in historical notes predate this move.
+Run all checks with:
 
-Run checks with `python -m unittest discover -s tests -v`.
-
-## Full-play review controls
-
-Run `.\.venv\Scripts\python.exe -m tools.review_full_plays --input outputs/all_plays_review_v1`.
-Hold the on-screen **HOLD: 2x speed** button to accelerate playback; release it
-to return to normal speed. Click **Skip to snap** or press **S** before the snap.
-Space pauses, Q advances, and Escape exits. Playback finishes the clip before
-holding the snap+2.30-second coverage frame.
-
-The viewer refreshes defensive detections on that frame with the local
-`models/yolo11s.pt` model. Safety boxes follow the deepest eligible defensive
-tier (within approximately three yards of its deepest player), rather than every
-defender beyond the minimum depth. Turf and uniform-color filters reject likely
-sideline personnel and opponents. Boxes remain 15 yards wide at approximate
-scale. Ball distance uses `ball_reference_point` when supplied in the geometry;
-otherwise the LOS center is the snap-ball proxy, not a live ball detection.
-Fresh positions require comparable saved reference anchors; missed detections,
-approximate registration, and color ambiguity can still leave safeties unresolved.
-
-## Baseline contract
-
-`python -m src.shells INPUT.json --output outputs/shell.json` writes a new result
-file and refuses to overwrite one. The example is synthetic, not film evidence.
-Inputs specify lateral distance from field center and depth from the LOS,
-positive toward the defensive backfield. Defaults use yards; image-coordinate
-users must first choose a consistent LOS-relative basis and supply all thresholds
-in those units. No automatic homography is provided.
-
-`complete: true` means a reviewer has confirmed both full secondary visibility
-and reliable defensive-player observations. Otherwise the result is `unknown`.
-Wide corner candidates are excluded by a configurable lateral gate; threshold
-borderlines, asymmetric structures, and three-high are rejected conservatively.
-Confidence is a heuristic score, not a measured probability. Pre/post coordinate
-comparison does not establish player identity or measure tracking quality.
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
